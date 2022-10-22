@@ -15,3 +15,15 @@ This repository contains weekly homework assignments and projects.
 - Create GitHub page 
 - Create bar chart of visits to Chicago libraries
 - Submit data for final project
+
+### Week 4
+- Learn to create line and area charts in D3
+  -- applicable files:
+      -- area.html, area.js
+      -- horizontal-bar.html, horizontal-bar.js,
+      -- line.html, line.js
+      -- long-term-interest-G7.csv, long-term-interest-monthly.csv
+ - Create a line chart for homework
+  -- appliable files:
+    -- long-term-interest-canada.csv, homework.html, homework.js
+  
