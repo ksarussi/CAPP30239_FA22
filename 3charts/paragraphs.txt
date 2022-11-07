@@ -1,0 +1,14 @@
+1) Our first chart presents the ten states with the most individuals killed while fleeing from police. In many ways, this variable
+represents those individuals who were the most obviously non-threatening to police. Among 1500 killed individuals, only 138 were 
+marked as fleeing when slain. 79 of these killings occurred in these 10 states, representing 57% of total such deaths.
+Four of the top five are in the 5 most populous states in the dataset, implying some need to control for proportionality. Taken together,
+that distribution means shockingly few killings of fleeing suspects occur in the vast majority of states. Broadly speaking, this can be
+read as police showing restraint regarding fleeing suspects, or, police underreporting the number of fleeing suspects who are slain.
+
+2) Our second chart shows the proportional breakdown of victims based on mental illness and armament at time of death. We were curious
+about the relative rates, but especially about the intersection of the two. While we cannot ascertain the legality of weapon ownership
+among those represented here, it is striking that 15% of those killed by police were both mentally ill and armed at the time of their deaths.
+These deaths would seem to be the most preventable if basic gun control and prudence measures were adopted more widely in our society. Also
+striking is the roughly 38% of those killed who were unarmed in any way. Police should not kill without the ironclad knowledge that 
+a life is in immediate danger and there is no other remediation. Without armament of any kind, it begs the question: what justification
+was there to kill these 589 people?
