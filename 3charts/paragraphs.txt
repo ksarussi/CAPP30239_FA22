@@ -12,3 +12,10 @@ These deaths would seem to be the most preventable if basic gun control and prud
 striking is the roughly 38% of those killed who were unarmed in any way. Police should not kill without the ironclad knowledge that 
 a life is in immediate danger and there is no other remediation. Without armament of any kind, it begs the question: what justification
 was there to kill these 589 people?
+
+3) The third charts looks at trends over time in number of people killed by police by month. Although simple, it is a good starting
+point to help us see what data exists in general. After we look at trends over time, we can start to understand what if data might be missing/unreported.
+The line chart can help us form questions to better understand what an "average" month looks like, and then start to compare months with fewer deaths and
+months with more deaths, and then follow up with questions on why there are differences between months. This chart shows that the lowest
+number of deaths is in June, which is the first month of summer, but the highest number of deaths occurred the following month. With additional data,
+we could compare these trends over many months and years to get a better picture behind what is causing these peaks and troughs.
