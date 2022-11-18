@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;700&display=swap" rel="stylesheet">
+  <title>Pedestrian crashes</title>
+  <style>
+        /* .container {
+        max-width: 1040px;
+        margin: 0 auto;
+        } */
+    * { font-family: Arial, Helvetica, sans-serif; }
+    .flex-container {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        align-items: flex-start;
+        align-content: flex-start;
+        width: 100%;
+        max-width: 1040px;
+        height: 80vh;
+        overflow: auto;
+        flex-direction: row;
+        margin: 0 auto;
+    }
+    .flex-container .flex-item {
+        width: 100%;
+        min-height: 500px;
+        margin: 5px;
+    }
+    svg { width: 100%; }
+    text { font-size: 16px; }
+    /* Responsive Design */
+    @media only screen and (max-width: 600px) { 
+        .flex-container {
+            display: block;
+            width: 80%;
+            height: auto;
+        }
+        .flex-container .flex-item { min-height: auto; }
+    } /* media query stacks your charts as the windows gets smaller ands maller*/
+</style>
+
+
+<head>
+
+<body>
+    <div class="container">
+        <h1>
+            Pedestrian - Car Crashes in Chicago 
+        </h1>
+        <h2>2017-2022</h2>
+
+    <div class='flex-container'>
+        <div class="flex-item">
+            <h2> Number of Pedestrians Fatalities 2022 </h2>
+        </div>
+        <div id="beeswarm_peds" class="flex-item chart"></div>
+    </div>
+
+    <div class='flex-container'>
+        <div id="grid-chart_morning" class="flex-item"> 
+            <h2> Percent of pedestrians killed during the afternoon </h2>
+        </div>
+
+        <div id="grid-chart" class="flex-item"> 
+            <h2> Percent of pedestrians killed while in the crosswalk </h2>
+	    </div>
+    </div>
+
+    <script src="http://d3js.org/d3.v4.js"></script>
+    <script src="time_day.js"></script>
+    <script src="crosswalk.js"></script>
+    <script src="fatal_peds_2022_bees.js"></script>
+
+
+</body>
+</html>
