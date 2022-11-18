@@ -23,7 +23,7 @@
         align-content: flex-start;
         width: 100%;
         max-width: 1040px;
-        height: 80vh;
+        /* height: vh; */
         overflow: auto;
         flex-direction: row;
         margin: 0 auto;
@@ -32,6 +32,11 @@
         width: 100%;
         min-height: 500px;
         margin: 5px;
+    }
+    .flex-container .flex-item_chart{
+        width: 100%;
+        min-height: 350;
+        margin: 1px;
     }
     svg { width: 100%; }
     text { font-size: 16px; }
@@ -57,10 +62,11 @@
         <h2>2017-2022</h2>
 
     <div class='flex-container'>
-        <div class="flex-item">
+        <!-- <div class="flex-item"> -->
+        <div id="beeswarm_peds" class="flex-item_chart">
             <h2> Number of Pedestrians Fatalities 2022 </h2>
         </div>
-        <div id="beeswarm_peds" class="flex-item chart"></div>
+
     </div>
 
     <div class='flex-container'>
@@ -73,7 +79,7 @@
 	    </div>
     </div>
 
-    <script src="http://d3js.org/d3.v4.js"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
     <script src="time_day.js"></script>
     <script src="crosswalk.js"></script>
     <script src="fatal_peds_2022_bees.js"></script>

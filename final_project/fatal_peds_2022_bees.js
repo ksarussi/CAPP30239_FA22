@@ -15,8 +15,8 @@ d3.csv('fatal_2022_peds.csv').then(data => {
         title: d => `Month`,
         width: 500,
         marginTop: 40,
-        height: 100,
-        radius: 5
+        height: 75,
+        radius: 4
     });
     
 console.log(data)
@@ -50,6 +50,7 @@ function BeeswarmChart(data, {
     height, // outer height, in pixels
     xType = type, // type of x-scale, e.g. d3.scaleLinear
     xLabel = label, // a label for the x-axis
+    //xFormat = xScale.tickFormat("%b", xFormat),
     xDomain = domain, // [xmin, xmax]
     xRange = [marginLeft, width - marginRight] // [left, right]
     } = {}) {
