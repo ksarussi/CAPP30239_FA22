@@ -1,7 +1,7 @@
 // https://observablehq.com/@harrystevens/beeswarm-methods-compared
 
 // (3) IMPORT DATA (this data is from Observable example)
-d3.csv('fatal_2022_peds.csv').then(data => {
+d3.csv('data/fatal_2022_peds.csv').then(data => {
         
     for(let d of data) {
         d.Date = new Date(d.Date);
@@ -68,7 +68,8 @@ function BeeswarmChart(data, {
 
     // Construct scales and axes.
     const xScale = xType(xDomain, xRange);
-    const xAxis = d3.axisBottom(xScale).tickSizeOuter(0);
+    // const xAxis = d3.axisBottom(xScale).tickSizeOuter(0);
+    const xAxis = d3.axisBottom(xScale).tickFormat(d3.timeFormat("%b"));
     const color = group == null ? null : d3.scaleOrdinal(groups, colors);
 
     // Compute the y-positions.
