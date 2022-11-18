@@ -1,5 +1,9 @@
 //["#002051","#7f7c75","#fdea45"]
 //["#ef8a62","#ffffff","#999999"]
+// ["#fef0d9","#fdd49e","#fdbb84","#fc8d59","#e34a33","#b30000"]
+// ["#ffffd4","#fee391","#fec44f","#fe9929","#d95f0e","#993404"]
+// ["#ffffe5","#fff8c4","#feeaa1","#fed676","#feba4a","#fb992c","#ee7918","#d85b0a","#b74304","#8f3204","#662506"]
+
 
 https://lvngd.com/blog/building-pictogram-grids-d3js/
 (function grid_crosswalk() {
@@ -10,7 +14,7 @@ https://lvngd.com/blog/building-pictogram-grids-d3js/
 	//variables for the font family, and some colors
 	var fontFamily = "helvetica";
 	var twitterFill = "#999999";
-	var twitterFillActive = "#fdea45";
+	var twitterFillActive = "#feba4a"; // before used fdea45
 	var svgBackgroundColor = '#002051';
 
 	//width and height of the SVG

@@ -10,7 +10,7 @@ https://lvngd.com/blog/building-pictogram-grids-d3js/
 	//variables for the font family, and some colors
 	var fontFamily = "helvetica";
 	var twitterFill = "#999999";
-	var twitterFillActive = "#fdea45";
+	var twitterFillActive = "#feba4a";
 	var svgBackgroundColor = '#002051';
 
 	//width and height of the SVG
