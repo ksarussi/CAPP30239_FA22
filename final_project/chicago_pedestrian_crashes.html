@@ -5,15 +5,21 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;700&display=swap" rel="stylesheet"> -->
+  <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;700&display=swap" rel="stylesheet">
   <title>Pedestrian crashes</title>
   <style>
-        /* .container {
+
+    svg {
+    width: 50%;
+    height: auto;
+    margin: 0 auto;
+    }
+        .container {
         max-width: 1040px;
         margin: 0 auto;
-        } */
+        }
     * { font-family: Arial, Helvetica, sans-serif; }
     .flex-container {
         display: flex;
@@ -34,7 +40,7 @@
         margin: 5px;
     }
     .flex-container .flex-item_chart{
-        width: 100%;
+        /* width: 100%; */
         min-height: 350;
         margin: 1px;
     }
@@ -63,7 +69,7 @@
 
     <div class='flex-container'>
         <!-- <div class="flex-item"> -->
-        <div id="beeswarm_peds" class="flex-item_chart">
+        <div id="beeswarm_peds" class="flex-item flex-item_chart">
             <h2> Number of Pedestrians Fatalities 2022 </h2>
             <h3> (through Oct. 2022)</h3>
         </div>
