@@ -58,6 +58,16 @@
       font-size: 12px;
     }
 
+    .flex-container_stack {
+            width: 100%;
+            max-width: 1040px;
+            margin: 0 auto;
+        }
+
+    #area_observable text {
+        font-size: 12px;
+        }
+
     svg { width: 100%; }
     text { font-size: 10px; }
     /* Responsive Design */
@@ -81,11 +91,16 @@
         </h1>
         <h2>2017-2022</h2>
     
-    <div id="flex-container">
+    <div id="flex-container_stack">
         <h2>Number Pedestrians in Crashes by Month 2017- Oct. 2022 </h2>
         <p>Add description here
         </p>
         <div id="line_chart"></div> 
+    </div>
+
+    <div class="flex-container-new">
+        <h2>Importing Observable Code Snippet: area stacked</h2>
+        <div id="area_chart_observable"></div>
     </div>
 
     <div class='flex-container'>
@@ -112,6 +127,7 @@
     <script src="time_day.js"></script>
     <script src="crosswalk.js"></script>
     <script src="line_chart_months.js"></script>
+    <script src="area_observable.js"></script>
 
 
 </body>

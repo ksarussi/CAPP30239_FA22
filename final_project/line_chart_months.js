@@ -106,7 +106,7 @@
 
         let apr2022 = data[data.length - 31];
         svg.append("text") // positioning of end-of-line-label
-        .text("Apr '20 - 112")
+        .text("Apr '20: 112")
         .attr("x", x(apr2022.date)-33)
         .attr("y", y(apr2022.value)+17)
         .attr("dominant-baseline", "middle")
