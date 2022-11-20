@@ -86,7 +86,7 @@ function StackedAreaChart(data, {
     if (yDomain === undefined) yDomain = d3.extent(series.flat(2));
   
     // Construct scales and axes.
-    const xScale = xType(xDomain, xRange).nice();
+    const xScale = xType(xDomain, xRange);
     const yScale = yType(yDomain, yRange).nice();
     const color = d3.scaleOrdinal(zDomain, colors);
     const xAxis = d3.axisBottom(xScale).ticks(d3.utcMonth.every(6)).tickSizeOuter(0)

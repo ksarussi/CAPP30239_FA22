@@ -10,7 +10,7 @@ d3.csv('data/fatal_2022_peds.csv').then(data => {
     // (4) CALL FUNCTION WITH OPTIONAL PARAMS
     let beeswarm_peds = BeeswarmChart(data, {
         x: d => d.Date,
-        label: "Month",
+        //label: "Month",
         type: d3.scaleTime, // try d3.scaleLog
         title: d => `Month`,
         width: 500,
@@ -67,7 +67,7 @@ function BeeswarmChart(data, {
     if (G && groups === undefined) groups = d3.sort(G);
 
     // Construct scales and axes.
-    const xScale = xType(xDomain, xRange);
+    const xScale = xType(xDomain, xRange).nice();
     // const xAxis = d3.axisBottom(xScale).tickSizeOuter(0);
     const xAxis = d3.axisBottom(xScale).tickFormat(d3.timeFormat("%b"));
     const color = group == null ? null : d3.scaleOrdinal(groups, colors);
