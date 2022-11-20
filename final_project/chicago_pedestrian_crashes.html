@@ -55,6 +55,7 @@
       stroke-dasharray: 0;
     }
 
+    
     /* H1 { text-align: center }
     H2 { text-align: center } */
 
@@ -66,13 +67,10 @@
       font-size: 12px;
     }
 
-    /* #beeswarm_peds { */
-        /* outline: solid; */
-    /* } */
+    /* #beeswarm_peds {
+        H3 { text-align: center };
+    } */
     
-
-
-
 
     .flex-container_stack {
             width: 100%;
@@ -123,9 +121,12 @@
             Pedestrian Safety in Chicago 
         </h1>
         <h2> 2017-2022</h2>
-        <h3>Source: Chicago Open Data Portal Crash and
-            Vision Zero data (LINK) </h3>
 
+            <p>Data on the number of crashes is from Chicago Open Data Portal:  
+                <a href="https://data.cityofchicago.org/Transportation/Traffic-Crashes-Crashes/85ca-t3if">Chicago Open Data Portal</a> 
+            </p>
+        </p> Data last updated on 11/15/2022
+            </p>
     <p class="divided">
             <span class="divider"></span>
     </p>
@@ -134,10 +135,13 @@
         <h2>Pedestrians Hit by Vehicles </h2>
         <h2> January 2017 - October 2022 </h2>
 
-        <p>Add description here
+        <p>The number of pedestrians hit by vehicles dropped significantly during the pandemic. The fewest number of people in reported crashes was in April of 2022. Since then, the numbers have trended towards the pre-pandemic average.
         </p>
         <div id="line_chart"></div> 
     </div>
+    <p>Source: 
+        <a href="https://data.cityofchicago.org/Transportation/Traffic-Crashes-Crashes/85ca-t3if">Chicago Open Data Portal</a> 
+    </p>    
 
     <p class="divided">
         <span class="divider"></span>
@@ -147,21 +151,30 @@
         <h2>Pedestrian Injuries</h2>
         <div id="area_chart_observable"></div>
     </div>
-
+    <p>Source:
+        <a href="https://data.cityofchicago.org/Transportation/Traffic-Crashes-Crashes/85ca-t3if">Chicago Open Data Portal</a> 
+    </p>
+    
     <p class="divided">
         <span class="divider"></span>
     </p>
 
     <div class='flex-container'>
         <!-- <div class="flex-item"> -->
-        <div id="beeswarm_peds" class="flex-item flex-item_chart">
+        <div id="beeswarm_peds" class="flex-item ">
             <h2> Pedestrian fatalities: January - October 2022 </h2>
-        </div>
-
+            <!-- H2 { text-align: center } -->
+            </div>
+    </div>
+    <p>Source: 
+        <a href="https://data.cityofchicago.org/Transportation/Traffic-Crashes-Crashes/85ca-t3if">Chicago Open Data Portal</a> 
+    </p>  
+</div>
     </div>
     <p class="divided">
         <span class="divider"></span>
     </p>
+    
     <div class='flex-container'>
             <h2> Percent of pedestrians killed: </h2>
         </div>
@@ -176,6 +189,11 @@
         <div id="grid-chart" class="flex-item"> 
             <h2> while in the crosswalk </h2>
 	    </div>
+    </div>
+    <p>Source:  
+        <a href="https://data.cityofchicago.org/Transportation/Traffic-Crashes-Crashes/85ca-t3if">Chicago Open Data Portal</a> 
+    </p>  
+</div>
     </div>
 
     <script src="https://d3js.org/d3.v7.min.js"></script>
