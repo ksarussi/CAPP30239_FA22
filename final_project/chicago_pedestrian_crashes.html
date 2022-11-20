@@ -16,10 +16,10 @@
     height: auto;
     margin: 0 auto;
     } */
-        /* .container {
+        .container {
         max-width: 1040px;
         margin: 0 auto;
-        } */
+        }
     * { font-family: Arial, Helvetica, sans-serif; }
     .flex-container {
         display: flex;
@@ -38,18 +38,26 @@
         width: 100%;
         min-height: 300px;
         margin: 5px;
+
     }
     .flex-container .flex-item_chart{
         width: 100%;
         min-height: 350;
         margin: 1px;
+        outline: solid;
+        padding: 50px;
+
+
     }
 
     #line_chart line {
       stroke: #ddd;
       stroke-dasharray: 0;
     }
-    
+
+    /* H1 { text-align: center }
+    H2 { text-align: center } */
+
     #line_chart path.domain { 
       display: none;  
     } 
@@ -58,15 +66,36 @@
       font-size: 12px;
     }
 
+    /* #beeswarm_peds { */
+        /* outline: solid; */
+    /* } */
+    
+
+
+
+
     .flex-container_stack {
             width: 100%;
             max-width: 1040px;
             margin: 0 auto;
         }
 
-    #area_observable text {
-        font-size: 12px;
+    #area_chart_observable text {
+        font-size: 14px;
         }
+
+    .divided {
+  display: flex;
+  align-items: center;
+    }
+
+    .divider {
+  flex-grow: 1;
+  border-bottom: 1px solid rgb(46, 45, 45);
+  margin: 5px
+    }
+
+
 
     svg { width: 100%; }
     text { font-size: 10px; }
@@ -85,40 +114,67 @@
 <head>
 
 <body>
+    <p class="divided">
+        <span class="divider"></span>
+</p>
+
     <div class="container">
         <h1>
-            Pedestrian - Car Crashes in Chicago 
+            Pedestrian Safety in Chicago 
         </h1>
-        <h2>2017-2022</h2>
-    
+        <h2> 2017-2022</h2>
+        <h3>Source: Chicago Open Data Portal Crash and
+            Vision Zero data (LINK) </h3>
+
+    <p class="divided">
+            <span class="divider"></span>
+    </p>
+
     <div id="flex-container_stack">
-        <h2>Number Pedestrians in Crashes by Month 2017- Oct. 2022 </h2>
+        <h2>Pedestrians Hit by Vehicles </h2>
+        <h2> January 2017 - October 2022 </h2>
+
         <p>Add description here
         </p>
         <div id="line_chart"></div> 
     </div>
 
-    <div class="flex-container-new">
-        <h2>Importing Observable Code Snippet: area stacked</h2>
+    <p class="divided">
+        <span class="divider"></span>
+    </p>
+
+    <div class="flex-container-new"> 
+        <h2>Pedestrian Injuries</h2>
         <div id="area_chart_observable"></div>
     </div>
+
+    <p class="divided">
+        <span class="divider"></span>
+    </p>
 
     <div class='flex-container'>
         <!-- <div class="flex-item"> -->
         <div id="beeswarm_peds" class="flex-item flex-item_chart">
-            <h2> Number of Pedestrians Fatalities 2022 </h2>
-            <h3> (through Oct. 2022)</h3>
+            <h2> Pedestrian fatalities: January - October 2022 </h2>
         </div>
 
     </div>
+    <p class="divided">
+        <span class="divider"></span>
+    </p>
+    <div class='flex-container'>
+            <h2> Percent of pedestrians killed: </h2>
+        </div>
+
+
 
     <div class='flex-container'>
         <div id="grid-chart_morning" class="flex-item"> 
-            <h2> Percent of pedestrians killed during the afternoon </h2>
+            <h2> during the afternoon  </h2>
         </div>
 
         <div id="grid-chart" class="flex-item"> 
-            <h2> Percent of pedestrians killed while in the crosswalk </h2>
+            <h2> while in the crosswalk </h2>
 	    </div>
     </div>
 

@@ -36,8 +36,9 @@
         
         svg.append("g")
         .attr("transform", `translate(0,${height - margin.bottom})`)
-        .attr("font-weight", "bold")
-        .call(d3.axisBottom(x).tickPadding([7])
+        // .attr("font-weight", "bold")
+        .call(d3.axisBottom(x)
+        .tickPadding([7])
         .tickSizeOuter(0)
         .ticks(d3.utcMonth.every(6))
         //   .ticks(d3.time.months, 10)
@@ -46,7 +47,7 @@
         
         svg.append("g")
         .attr("transform", `translate(${margin.left},0)`)
-        .attr("font-weight", "bold")
+        // .attr("font-weight", "bold")
         .call(d3.axisLeft(y).tickPadding([14])
         .tickSizeOuter(0)
         .tickFormat(d => d) // loop thru dataand return string wiht % sign

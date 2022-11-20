@@ -89,8 +89,9 @@ function StackedAreaChart(data, {
     const xScale = xType(xDomain, xRange);
     const yScale = yType(yDomain, yRange);
     const color = d3.scaleOrdinal(zDomain, colors);
-    const xAxis = d3.axisBottom(xScale).ticks(width / 80, xFormat).tickSizeOuter(0);
-    const yAxis = d3.axisLeft(yScale).ticks(height / 50, yFormat);
+    const xAxis = d3.axisBottom(xScale).ticks(d3.utcMonth.every(6)).tickSizeOuter(0)
+    .tickFormat(d3.timeFormat("%b-%y"));
+    const yAxis = d3.axisLeft(yScale).ticks(height / 50);
   
     const area = d3.area()
         .x(({i}) => xScale(X[i]))
@@ -125,7 +126,7 @@ function StackedAreaChart(data, {
         .attr("d", area)
       .append("title")
         .text(([{i}]) => Z[i]);
-  
+  console.log(Z)
     svg.append("g")
         .attr("transform", `translate(0,${height - marginBottom})`)
         .call(xAxis);
@@ -145,7 +146,7 @@ function StackedAreaChart(data, {
     svg.append("text").attr("x", 620).attr("y", 148).text("Incapacitating").style("font-size", "14px").attr("alignment-baseline","middle")
     svg.append("text").attr("x", 620).attr("y", 170).text("Fatal").style("font-size", "14px").attr("alignment-baseline","middle")
 
-    ["#08306b","#1c6aaf","#3787c0","#82badb","#cadef0"]
+    //["#08306b","#1c6aaf","#3787c0","#82badb","#cadef0"]
 
 
     return Object.assign(svg.node(), {scales: {color}});
