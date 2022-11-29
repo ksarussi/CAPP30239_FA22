@@ -16,8 +16,8 @@ const svg = d3.select("#my_dataviz2")
 
 Promise.all([
     d3.csv('data/location_2017.csv'),
-    d3.json('data/location_2018.csv'),
-    d3.json('data/location_2017.csv')
+    d3.csv('data/location_2018.csv'),
+    d3.csv('data/location_2017.csv')
 ]).then((data) => {  
 
 
@@ -33,14 +33,7 @@ Promise.all([
         .attr("transform", "translate(-10,0)rotate(-45)")
         .style("text-anchor", "end");
 
-    // Y axis
-    const y = d3.scaleBand()
-    .range([ 0, height ])
-    .domain(data.map(d => d.PEDPEDAL_LOCATION))
-    .padding(.1);
 
-    svg.append("g")
-    .call(d3.axisLeft(y))
   
 //   const something = svg.append("g")
 //     .attr("class");
@@ -48,50 +41,54 @@ Promise.all([
   //Bars
     function updateChart(i) {
     //Bars
-        svg.selectAll("myRect")
-            .data(data)
-            .join("rect")
-            .attr("x", x(0) )
-            .attr("y", d => y(d.PEDPEDAL_LOCATION))
-            .attr("width", d => x(d.value))
-            .attr("height", y.bandwidth())
-            .attr("fill", "#002051")
+    console.log(data[i])
 
+        // Y axis
+        const y = d3.scaleBand()
+        .range([ 0, height ])
+        .domain(data[i].map(d => d.PEDPEDAL_LOCATION))
+        .padding(.1);
+    
+        svg.append("g")
+        .call(d3.axisLeft(y))
+
+        svg.selectAll("myRect")
+            .data(data[i])
+            .join(
+                enter => {
+                    enter.append("rect")
+                    .attr("x", x(0) )
+                    .attr("y", d => y(d.PEDPEDAL_LOCATION))
+                    .attr("width", d => x(d.value))
+                    .attr("height", y.bandwidth())
+                    .attr("fill", "#002051")
+        
+                },   
         update => {
             update.select("rect")
-                .transition()
-                .duration(750)
-                .attr("y", d => y(d.length))
-                .attr("height", d => height - margin.bottom - y(d.length));
+                .attr("x", d => x(0))
+                .attr("width", d => width - margin.bottom - x(d.value));
 
-            update.select("text")
-                .text(d => d.length)
-                .transition()
-                .duration(750)
-                .attr("y", d => y(d.length) - 5);
             },
-
         exit => {
             exit.select("rect")
-                .transition()
-                .duration(750)
-                .attr("height", 0)
-                .attr("y", height - margin.bottom);
+                .attr("width", 0)
+                .attr("x", width - margin.bottom);
 
-            exit.select("text")
-                .text("");
-
-            exit.transition()
-                .duration(750)
-                .remove();
             }
+        )
+
+            // .join("rect")
         // );
     }
     updateChart(0);
 
     d3.selectAll("select")
         .on("change", function (event) {
-        const i = parseInt(event.target.value);
+            const i = parseInt(event.target.value);
+            console.log(i)
         updateChart(i);
     });
+    // 
 });
+
