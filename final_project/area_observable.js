@@ -1,27 +1,22 @@
 
-// (3) IMPORT DATA (this data is from Observable example)
 d3.csv('data/area_chart.csv').then(data => {
         
     for(let d of data) {
         d.date = new Date(d.date);
     }
 
-    // (4) CALL FUNCTION WITH OPTIONAL PARAMS
     let area_chart_observable = StackedAreaChart(data, {
         x: d => d.date,
         y: d => d.value,
         z: d => d.Updated_Injury_Class,
         xlabel: "Month",
-        xtype: d3.scaleTime, // try d3.scaleLog
-        ylabel: "Injury Type",
-        // title: d => `Month`,
+        xtype: d3.scaleTime,
+        ylabel: "↑ Number of People ",
         width: 1000,
-        // marginTop: 40,
         height: 500,
     });
     
 console.log(data)
-    // (5) APPEND TO PAGE
     document.getElementById("area_chart_observable").appendChild(area_chart_observable);
 });
 
@@ -92,7 +87,8 @@ function StackedAreaChart(data, {
     const xAxis = d3.axisBottom(xScale).ticks(d3.utcMonth.every(6)).tickSizeOuter(0)
     .tickFormat(d3.timeFormat("%b-%y"));
     const yAxis = d3.axisLeft(yScale).ticks(height / 50);
-  
+    // const yAxis = d3.axisLeft(yScale).ticks(height / 50, yFormat)
+
     const area = d3.area()
         .x(({i}) => xScale(X[i]))
         .y0(([y1]) => yScale(y1))
@@ -131,23 +127,19 @@ function StackedAreaChart(data, {
         .attr("transform", `translate(0,${height - marginBottom})`)
         .call(xAxis);
 
-
-    // Handmade legend
-    svg.append("circle").attr("cx",610).attr("cy",76).attr("r", 6).style("fill", "#cadef0")
-    svg.append("circle").attr("cx",610).attr("cy",100).attr("r", 6).style("fill", "#82badb")
-    svg.append("circle").attr("cx",610).attr("cy",122).attr("r", 6).style("fill", "#3787c0")
+    // Legend
+    svg.append("circle").attr("cx",610).attr("cy",82).attr("r", 6).style("fill", "#cadef0")
+    svg.append("circle").attr("cx",610).attr("cy",102).attr("r", 6).style("fill", "#82badb")
+    svg.append("circle").attr("cx",610).attr("cy",124).attr("r", 6).style("fill", "#3787c0")
 
     svg.append("circle").attr("cx",610).attr("cy",145).attr("r", 6).style("fill", "#1c6aaf")
     svg.append("circle").attr("cx",610).attr("cy",167).attr("r", 6).style("fill", "#08306b")
     
-    svg.append("text").attr("x", 620).attr("y", 79).text("Reported, Not Evident").style("font-size", "14px").attr("alignment-baseline","middle")
-    svg.append("text").attr("x", 620).attr("y", 103).text("Non-Incapacitating").style("font-size", "14px").attr("alignment-baseline","middle")
-    svg.append("text").attr("x", 620).attr("y", 125).text("No indication of Injury").style("font-size", "14px").attr("alignment-baseline","middle")
-    svg.append("text").attr("x", 620).attr("y", 148).text("Incapacitating").style("font-size", "14px").attr("alignment-baseline","middle")
-    svg.append("text").attr("x", 620).attr("y", 170).text("Fatal").style("font-size", "14px").attr("alignment-baseline","middle")
-
-    //["#08306b","#1c6aaf","#3787c0","#82badb","#cadef0"]
-
+    svg.append("text").attr("x", 620).attr("y", 87).text("Reported, Not Evident").style("font-size", "14px").attr("alignment-baseline","middle")
+    svg.append("text").attr("x", 620).attr("y", 106).text("Non-Incapacitating").style("font-size", "14px").attr("alignment-baseline","middle")
+    svg.append("text").attr("x", 620).attr("y", 128).text("No indication of Injury").style("font-size", "14px").attr("alignment-baseline","middle")
+    svg.append("text").attr("x", 620).attr("y", 149).text("Incapacitating").style("font-size", "14px").attr("alignment-baseline","middle")
+    svg.append("text").attr("x", 620).attr("y", 171).text("Fatal").style("font-size", "14px").attr("alignment-baseline","middle")
 
     return Object.assign(svg.node(), {scales: {color}});
   }

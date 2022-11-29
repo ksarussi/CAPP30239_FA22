@@ -1,208 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
-  <!-- <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;700&display=swap" rel="stylesheet"> -->
   <title>Pedestrian crashes</title>
-  <style>
-
-    /* svg {
-    width: 100%;
-    height: auto;
-    margin: 0 auto;
-    } */
-        .container {
-        max-width: 1040px;
-        margin: 0 auto;
-        }
-    * { font-family: Arial, Helvetica, sans-serif; }
-    .flex-container {
-        display: flex;
-        flex-wrap: nowrap;
-        justify-content: flex-start;
-        align-items: flex-start;
-        align-content: flex-start;
-        width:90%;
-        max-width: 1040px;
-        /* height: 100vh; */
-        overflow: auto;
-        flex-direction: row;
-        margin: 0 auto;
-    }
-    .flex-container .flex-item {
-        width: 100%;
-        min-height: 300px;
-        margin: 5px;
-
-    }
-    .flex-container .flex-item_chart{
-        width: 100%;
-        min-height: 350;
-        margin: 1px;
-        outline: solid;
-        padding: 50px;
-
-
-    }
-
-    #line_chart line {
-      stroke: #ddd;
-      stroke-dasharray: 0;
-    }
-
-    
-    /* H1 { text-align: center }
-    H2 { text-align: center } */
-
-    #line_chart path.domain { 
-      display: none;  
-    } 
-
-    #line_chart text {
-      font-size: 12px;
-    }
-
-    /* #beeswarm_peds {
-        H3 { text-align: center };
-    } */
-    
-
-    .flex-container_stack {
-            width: 100%;
-            max-width: 1040px;
-            margin: 0 auto;
-        }
-
-    #area_chart_observable text {
-        font-size: 14px;
-        }
-
-    .divided {
-  display: flex;
-  align-items: center;
-    }
-
-    .divider {
-  flex-grow: 1;
-  border-bottom: 1px solid rgb(46, 45, 45);
-  margin: 5px
-    }
-
-
-
-    svg { width: 100%; }
-    text { font-size: 10px; }
-    /* Responsive Design */
-    @media only screen and (max-width: 600px) { 
-        .flex-container {
-            display: block;
-            width: 80%;
-            height: auto;
-        }
-        .flex-container .flex-item { min-height: auto; }
-    } /* media query stacks your charts as the windows gets smaller ands maller*/
-</style>
-
-
+  <link rel="stylesheet" href="styles.css">
 <head>
-
 <body>
-    <p class="divided">
-        <span class="divider"></span>
-</p>
-
-    <div class="container">
-        <h1>
-            Pedestrian Safety in Chicago 
-        </h1>
-        <h2> 2017-2022</h2>
-
-            <p>Data on the number of crashes is from Chicago Open Data Portal:  
+    <div class="section">
+        <h1> Pedestrian Safety in Chicago </h1>
+        <h2> All data is from 2017 through October 2022 </h2>
+        <p>Data on the number of crashes is from Chicago Open Data Portal:  
+            <a href="https://data.cityofchicago.org/Transportation/Traffic-Crashes-Crashes/85ca-t3if">Chicago Open Data Portal</a> 
+        </p>
+        </p> Data last updated on 11/15/2022 </p>
+        <p class="divided">
+        <span class="divider"> </span> </p>
+    </div>
+    <div class="section"> 
+        <h2>Hundreds of Pedestrians are Hit by Vehicles Every Month </h2>
+        <p> There are some data quality issues in the early months of 2017. It is probable that the number
+            of pedestrains hit by vehicles is underreported in the data prior to the steep pickup in AUGUST 2017?? </p>
+        <p> The number of pedestrians hit by vehicles each month dropped as the COVID-19 pandemic picked up in March 2020. 
+            The lowest number of crashes in one month occurred in April 2020, in the midst of the COVID-19 pandemic.
+            Since then, number of pedestrians hit by vehicles each month have trended towards the pre-pandemic average.
+        </p>
+        <div id="line_chart"> </div> 
+        <p>Source: 
+            <a href="https://data.cityofchicago.org/Transportation/Traffic-Crashes-Crashes/85ca-t3if">Chicago Open Data Portal</a> 
+        </p>    
+        <p class="divided">
+        <span class="divider"></span> </p>
+    </div>
+    <div class="section"> 
+        <h2>Most Pedestrians' Injuries are Recorded as Non-Incapacitating </h2>
+        <p> "Reported, Non-evident" injuries are any injuries not included in the other categories or that are not visible/evident.
+            Non-incapacitating injuries are defined as "any injury, other than a fatal or incapacitating injury, which is evident to
+            observers at the scene of the crash. 
+            This includes lumps on the head, abrasions, bruises, minor lacerations." 
+        </p>
+        <div id="area_chart_observable"></div>
+            <p> Source:
                 <a href="https://data.cityofchicago.org/Transportation/Traffic-Crashes-Crashes/85ca-t3if">Chicago Open Data Portal</a> 
             </p>
-        </p> Data last updated on 11/15/2022
+                <p> and 
+                <a href="https://safety.fhwa.dot.gov/hsip/spm/conversion_tbl/pdfs/kabco_ctable_by_state.pdf">KABCO Injury Classification Definitions</a> 
+
             </p>
-    <p class="divided">
-            <span class="divider"></span>
-    </p>
-
-    <div id="flex-container_stack">
-        <h2>Pedestrians Hit by Vehicles </h2>
-        <h2> January 2017 - October 2022 </h2>
-
-        <p>The number of pedestrians hit by vehicles dropped significantly during the pandemic. The fewest number of people in reported crashes was in April of 2022. Since then, the numbers have trended towards the pre-pandemic average.
+            <p class="divided">
+            <span class="divider"></span> </p>
+    </div>
+    <div class="section"> 
+        <div id="beeswarm_peds" >
+            <h2> Pedestrian Fatalities in 2022 </h2> </div>
+        <p> From January to October, thirty-eight pedestrians have been killed this year.         
         </p>
-        <div id="line_chart"></div> 
+        <p> Source: 
+            <a href="https://data.cityofchicago.org/Transportation/Traffic-Crashes-Crashes/85ca-t3if">Chicago Open Data Portal</a> 
+        </p>  
+        <p class="divided">
+        <span class="divider"></span> </p>
     </div>
-    <p>Source: 
-        <a href="https://data.cityofchicago.org/Transportation/Traffic-Crashes-Crashes/85ca-t3if">Chicago Open Data Portal</a> 
-    </p>    
-
-    <p class="divided">
-        <span class="divider"></span>
-    </p>
-
-    <div class="flex-container-new"> 
-        <h2>Pedestrian Injuries</h2>
-        <div id="area_chart_observable"></div>
-
+    <div class='section'>
+        <h2> Percent of crashes resulting in fatalities that occured: </h2>
     </div>
-
-    <p>Source:
-        <a href="https://data.cityofchicago.org/Transportation/Traffic-Crashes-Crashes/85ca-t3if">Chicago Open Data Portal</a> 
-    </p>
-    
-    <p class="divided">
-        <span class="divider"></span>
-    </p>
-
-    <div class='flex-container'>
-        <!-- <div class="flex-item"> -->
-        <div id="beeswarm_peds" class="flex-item ">
-            <h2> Pedestrian fatalities: January - October 2022 </h2>
-            <!-- H2 { text-align: center } -->
-            </div>
-      
-    </div>
-    <p>Although fatalies make up a small percent of reported injuries, 38 people have still been killed this year.         
-    </p>
-    </div>
-
-    </div>
-    <p>Source: 
-        <a href="https://data.cityofchicago.org/Transportation/Traffic-Crashes-Crashes/85ca-t3if">Chicago Open Data Portal</a> 
-    </p>  
-</div>
-    </div>
-    <p class="divided">
-        <span class="divider"></span>
-    </p>
-    
-    <div class='flex-container'>
-            <h2> Percent of pedestrians killed from 2017 - 2022: </h2>
-        </div>
-
-
-
     <div class='flex-container'>
         <div id="grid-chart_morning" class="flex-item"> 
-            <h2> during the afternoon  </h2>
-        </div>
-
+            <h2> during the afternoon </h2> </div>
         <div id="grid-chart" class="flex-item"> 
-            <h2> while in the crosswalk </h2>
-	    </div>
+            <h2>  pedestrian is in crosswalk </h2> </div>
     </div>
-    <p>Source:  
-        <a href="https://data.cityofchicago.org/Transportation/Traffic-Crashes-Crashes/85ca-t3if">Chicago Open Data Portal</a> 
-    </p>  
+    <!-- still working on this...  -->
+    </div>
+        <div class='flex-container'>
+            <h4> 65% of fatalities occured during the afternoon </h4> 
+        <div class='flex-container'>
+            <h4> 27% of fatalities occured while the pedestrian was in the crosswalk </h4>
+        </div>
+        </div>
+        <p>Source:  
+            <a href="https://data.cityofchicago.org/Transportation/Traffic-Crashes-Crashes/85ca-t3if">Chicago Open Data Portal</a> 
+        </p>
+        <p class="divided">
+            <span class="divider"></span> </p>
+      <!-- definitely not done here  -->
+
+    </div>
+        
+    <div class="section"> 
+        <div id = "start here" > 
+            <h2> Pedestrians Location at Time of Crash 2017 </h2>
+            <p>The majority of pededstrians were in the crosswalk at the time of the crash
+            </p>
+            <div id="my_dataviz"></div>
+            <div id="horizontal-chart1"></div>
+        </div>
+        <p class="divided">
+            <span class="divider"></span> </p>
+    </div>
+
+    <div class="section"> 
+        <h2>Hundreds of Pedestrians are Hit by Vehicles Every Month </h2>
+        <!-- <div id="peds_action"></div>  -->
+        <div id="horizontal-chart"></div>
+        <p>Source: 
+            <a href="https://data.cityofchicago.org/Transportation/Traffic-Crashes-Crashes/85ca-t3if">Chicago Open Data Portal</a> 
+        </p>    
+        <p class="divided">
+        <span class="divider"></span> </p>
+
+
+
+    </div>
+    
 </div>
-    </div>
+
+        <div class="flex-container">
+            <h1>New2</h1>
+            <label>
+              Weather for 2022: 
+              <select>
+                <option value="0">2017</option>
+                <option value="1">2018</option>
+                <option value="2">2017</option>
+              </select>
+           </label>
+            <div id="my_dataviz2"></div>
+          </div>
+        </div>
 
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <script src="fatal_peds_2022_bees.js"></script>
@@ -210,6 +136,13 @@
     <script src="crosswalk.js"></script>
     <script src="line_chart_months.js"></script>
     <script src="area_observable.js"></script>
+    <script src="horizontal_bar_2017.js"></script>
+    <script src="horiz_bar_pedestrian_location_2017.js"></script>
+
+    <!-- <script src="horiz_bar_2017_2018.js"></script> -->
+    <!-- <script src="horizontal_bar_ped_action.js"></script> -->
+    <script src="other_horizontal_pedes_action.js"></script>
+
 
 
 </body>

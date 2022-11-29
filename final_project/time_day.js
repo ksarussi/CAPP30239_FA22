@@ -1,22 +1,23 @@
-//["#002051","#7f7c75","#fdea45"]
+// grid chart for afternoon fatalities 
 
-https://lvngd.com/blog/building-pictogram-grids-d3js/
+//Source: https://lvngd.com/blog/building-pictogram-grids-d3js/
+
 (function grid_time_day() {
 
-	//number of circles to color in to visualize percent
+	// number of circles to color in to visualize percent
 	var percentNumber = 163; // 68% of people are killed in the afternoon - DATA????
     // 240 people (rounded up by one - 0.68*240)
 
-	//variables for the font family, and some colors
+	// variables for the font family, and some colors
 	var fontFamily = "helvetica";
 	var twitterFill = "#999999";
 	var twitterFillActive = "#feba4a";
 	var svgBackgroundColor = '#002051';
 
-	//width and height of the SVG
+	// width and height of the SVG
 	const width = 600, height = 600;
 
-	//create an svg with width and height
+	// create an svg with width and height
 	var svg = d3.select('#grid-chart_morning')
 		.append('svg')
 		.attr("width", width)
@@ -24,11 +25,11 @@ https://lvngd.com/blog/building-pictogram-grids-d3js/
     	.style('background-color', svgBackgroundColor)
         .attr("viewBox", [0, 0, width, height]);
 
-	//10 rows and 10 columns 
+	// 10 rows and 10 columns 
 	var numRows = 15;
 	var numCols = 16;
 
-	//x and y axis scales
+	// x and y axis scales
 	var y = d3.scaleBand()
 		.range([0,400])
 		.domain(d3.range(numRows));
@@ -37,10 +38,10 @@ https://lvngd.com/blog/building-pictogram-grids-d3js/
 		.range([0, 400])
 		.domain(d3.range(numCols));
 
-	//the data is just an array of numbers for each cell in the grid
+	// the data is just an array of numbers for each cell in the grid
 	var data = d3.range(numCols*numRows);
 
-	//container to hold the grid
+	// container to hold the grid
 	var container = svg.append("g")
 		.attr("transform", "translate(110,120)");
 	
