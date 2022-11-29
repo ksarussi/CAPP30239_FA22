@@ -1,0 +1,23 @@
+PEDPEDAL_ACTION,value
+Crossing-with signal,25.96
+Crossing-no controls (not intersection),13.13
+Unknown/na,11.77
+Other action,10.18
+Crossing-no controls (at intersection),9.08
+Crossing-controls (not intersection),6.43
+No action,5.2
+With traffic,4.05
+Crossing-against signal,4.01
+Standing in roadway,3.7
+Not at intersection,1.72
+Parked vehicle,1.37
+Against traffic,1.32
+Working in roadway,0.84
+Playing in roadway,0.44
+Intoxicated,0.35
+Enter from drive/alley,0.13
+Playing/working on vehicle,0.13
+School bus (within 50 ft.),0.04
+To/from disabled vehicle,0.04
+Turning left,0.04
+Turning right,0.04
