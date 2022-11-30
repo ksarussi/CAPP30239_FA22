@@ -9,9 +9,9 @@ d3.csv('data/area_chart.csv').then(data => {
         x: d => d.date,
         y: d => d.value,
         z: d => d.Updated_Injury_Class,
-        xlabel: "Month",
+        // xLabel: "Month",
         xtype: d3.scaleTime,
-        ylabel: "↑ Number of People ",
+        yLabel: "↑ Number of People",
         width: 1000,
         height: 500,
     });

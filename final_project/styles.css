@@ -28,7 +28,7 @@ svg {
 
 .flex-container .flex-item {
     width: 100%;
-    min-height: 300px;
+    min-height: 100%;
     margin: 5px;
 }
 
