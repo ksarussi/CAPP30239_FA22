@@ -26,13 +26,19 @@ Promise.all([
     .domain([0, 1000])
     .range([ 0, width]);
 
-    svg.append("g")
+    // svg.append("g")
+    // .attr("transform", `translate(0, ${height})`)
+    // .call(d3.axisBottom(x))
+    // .selectAll("text")
+    //     .attr("transform", "translate(-10,0)rotate(-45)")
+    //     .style("text-anchor", "end");
+
+    const binGroups = svg.append("g")
     .attr("transform", `translate(0, ${height})`)
     .call(d3.axisBottom(x))
     .selectAll("text")
         .attr("transform", "translate(-10,0)rotate(-45)")
         .style("text-anchor", "end");
-
 
   
 //   const something = svg.append("g")
@@ -50,7 +56,7 @@ Promise.all([
         .padding(.1);
     
         svg.append("g")
-        .call(d3.axisLeft(y))
+        .call(d3.axisLeft(y));
 
         svg.selectAll("myRect")
             .data(data[i])
@@ -62,19 +68,24 @@ Promise.all([
                     .attr("width", d => x(d.value))
                     .attr("height", y.bandwidth())
                     .attr("fill", "#002051")
+                    .transition();
         
                 },   
         update => {
             update.select("rect")
-                .attr("x", d => x(0))
-                .attr("width", d => width - margin.bottom - x(d.value));
+                .attr("x", x(0))
+                .transition()
+                .attr("width", d => width - margin.right - x(d.value));
 
             },
         exit => {
             exit.select("rect")
-                .attr("width", 0)
-                .attr("x", width - margin.bottom);
+                .attr("height", 0)
+                .attr("x", width - margin.right);
 
+            exit.transition()
+            .duration(750)
+            .remove();
             }
         )
 

@@ -53,28 +53,28 @@
 			.attr('r', 12)
 			.attr('fill', function(d){return d < percentNumber ? twitterFillActive : twitterFill;})
 			.style('stroke', 'black');
-    const annotation1 = [
-        {
-            note: {
-            label: "Test",
-            // title: "Annotation title",
-            //align: "left",  // try right or left
-            //wrap: 200,  // try something smaller to see text split in several lines
-            //padding: 10   // More = text lower
-            },
-            color: ["white"],
-            x: 100,
-            y: 100,
-            dy: 100,
-            dx: 100
-        }
-        ]
+    // const annotation1 = [
+    //     {
+    //         note: {
+    //         label: "Test",
+    //         // title: "Annotation title",
+    //         //align: "left",  // try right or left
+    //         //wrap: 200,  // try something smaller to see text split in several lines
+    //         //padding: 10   // More = text lower
+    //         },
+    //         color: ["white"],
+    //         x: 100,
+    //         y: 100,
+    //         dy: 100,
+    //         dx: 100
+    //     }
+    //     ]
         
-    // Add annotation to the chart
-    const makeAnnotations = d3.annotation()
-        .annotations(annotations)
-    d3.select("#grid-chart")
-        .append("g")
-        .call(makeAnnotations)
+    // // Add annotation to the chart
+    // const makeAnnotations = d3.annotation()
+    //     .annotations(annotations)
+    // d3.select("#grid-chart")
+    //     .append("g")
+    //     .call(makeAnnotations)
         
 })();

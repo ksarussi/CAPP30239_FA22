@@ -1,17 +1,13 @@
-// https://observablehq.com/@harrystevens/beeswarm-methods-compared
-
-// (3) IMPORT DATA (this data is from Observable example)
+// Beeswarm data 2022
 d3.csv('data/fatal_2022_peds.csv').then(data => {
         
     for(let d of data) {
         d.Date = new Date(d.Date);
     }
 
-    // (4) CALL FUNCTION WITH OPTIONAL PARAMS
     let beeswarm_peds = BeeswarmChart(data, {
         x: d => d.Date,
-        //label: "Month",
-        type: d3.scaleTime, // try d3.scaleLog
+        type: d3.scaleTime, 
         title: d => `Month`,
         width: 500,
         marginTop: 40,
@@ -20,11 +16,8 @@ d3.csv('data/fatal_2022_peds.csv').then(data => {
     });
     
 console.log(data)
-    // (5) APPEND TO PAGE
     document.getElementById("beeswarm_peds").appendChild(beeswarm_peds);
 });
-
-// (2) PASTE OBSERVABLE FUNCTION
 
 // Copyright 2021 Observable, Inc.
 // Released under the ISC license.

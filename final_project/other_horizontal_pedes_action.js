@@ -24,7 +24,7 @@ d3.csv("data/action_2022.csv").then(data => {
     // if red strings = attribute that will go on html page
     const height = 600,
           width = 1200,
-          margin = ({ top: 25, right: 10, bottom: 100, left: 400 }); // adjust margins if labels are falling off!
+          margin = ({ top: 25, right: 150, bottom: 100, left: 400 }); // adjust margins if labels are falling off!
 
         ///svg append is adding something to the svg variable
     let svg = d3.select("#horizontal-chart") // resizing
