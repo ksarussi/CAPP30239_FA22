@@ -3,7 +3,7 @@
 // what's a promise? we control flow of data wtih a 'promise'
 // need to first get the data that's why we do .thne(data) this gets our dat afirst off
 
-d3.csv("data/action_2022.csv").then(data => {
+d3.csv("data/action_all_years.csv").then(data => {
 
     // converts a string to an integer
     // d is each row of the ata
@@ -24,7 +24,7 @@ d3.csv("data/action_2022.csv").then(data => {
     // if red strings = attribute that will go on html page
     const height = 600,
           width = 1200,
-          margin = ({ top: 25, right: 150, bottom: 100, left: 400 }); // adjust margins if labels are falling off!
+          margin = ({ top: 25, right: 150, bottom: 100, left: 450 }); // adjust margins if labels are falling off!
 
         ///svg append is adding something to the svg variable
     let svg = d3.select("#horizontal-chart") // resizing
@@ -78,6 +78,6 @@ d3.csv("data/action_2022.csv").then(data => {
         .attr('text-anchor', 'end')
         .attr("x", width-margin.right)
         .attr("y", height-42)
-        .text("Percentage");
+        .text("Percent");
 
 });

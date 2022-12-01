@@ -1,7 +1,7 @@
 // set the dimensions and margins of the graph
-const margin = {top: 20, right: 30, bottom: 40, left: 130},
-    width = 460 - margin.left - margin.right,
-    height = 400 - margin.top - margin.bottom;
+const margin = {top: 20, right: 30, bottom: 50, left: 120},
+    width = 400,
+    height = 350;
 
 // append the svg object to the body of the page
 const svg = d3.select("#my_dataviz2")
@@ -11,19 +11,29 @@ const svg = d3.select("#my_dataviz2")
   .append("g")
     .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
+svg.append('text') // svgs grow downward
+    .attr("class", "x-label")
+    .attr('text-anchor', 'end')
+    .attr("x", width - margin.right + 25)
+    .attr("y", height + 45)
+    .text("Percent")
+
 // Parse the Data
 //d3.csv("data/location_2017.csv").then(function(data) {
 
 Promise.all([
+    d3.csv('data/location_all_years.csv'),
     d3.csv('data/location_2017.csv'),
     d3.csv('data/location_2018.csv'),
-    d3.csv('data/location_2017.csv')
+    d3.csv('data/location_2019.csv'),
+    d3.csv('data/location_2020.csv'),
+    d3.csv('data/location_2021.csv'),
+    d3.csv('data/location_2022.csv')
+
 ]).then((data) => {  
-
-
     // Add X axis
     const x = d3.scaleLinear()
-    .domain([0, 1000])
+    .domain([0, 50])
     .range([ 0, width]);
 
     // svg.append("g")
@@ -55,39 +65,31 @@ Promise.all([
         .domain(data[i].map(d => d.PEDPEDAL_LOCATION))
         .padding(.1);
     
-        svg.append("g")
-        .call(d3.axisLeft(y));
+         // Remove exisiting left axis using id name
+         d3.select('#horiz_bar_axis_container').remove();
 
-        svg.selectAll("myRect")
-            .data(data[i])
-            .join(
-                enter => {
-                    enter.append("rect")
-                    .attr("x", x(0) )
-                    .attr("y", d => y(d.PEDPEDAL_LOCATION))
-                    .attr("width", d => x(d.value))
-                    .attr("height", y.bandwidth())
-                    .attr("fill", "#002051")
-                    .transition();
-        
-                },   
-        update => {
-            update.select("rect")
-                .attr("x", x(0))
-                .transition()
-                .attr("width", d => width - margin.right - x(d.value));
+         // Creates a <g> with horiz_bar_axis_container id name to make it easier to remove
+         const leftAxis = svg.append("g").attr('id', 'horiz_bar_axis_container');
+         leftAxis.call(d3.axisLeft(y));
+ 
+         svg.selectAll("rect")
+             .data(data[i])
+             .join(
+                 enter => {
+                   return enter.append("rect")
+                 },
 
-            },
-        exit => {
-            exit.select("rect")
-                .attr("height", 0)
-                .attr("x", width - margin.right);
+                 
 
-            exit.transition()
-            .duration(750)
-            .remove();
-            }
-        )
+         ).transition()
+         .duration(750)
+         .attr("x", x(0) )
+         .attr("y", d => y(d.PEDPEDAL_LOCATION))
+         .attr("width", d => x(d.value))
+         .attr("height", y.bandwidth())
+         .attr("fill", "#002051")
+
+
 
             // .join("rect")
         // );

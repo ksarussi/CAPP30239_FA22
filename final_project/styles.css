@@ -49,6 +49,10 @@ svg {
     font-size: 12px;
 }
 
+#horiz_bar_2017_2018 text {
+    font-size: 20px;
+}
+
 #area_chart_observable text {
     font-size: 14px;
 }
@@ -57,9 +61,6 @@ svg {
     font-size: 19.5px;
 }
 
-#horizontal-chart1 text {
-    font-size: 19.5px;
-}
 
 .divided {
 display: flex;

@@ -34,7 +34,7 @@
         <span class="divider"></span> </p>
     </div>
     <div class="section"> 
-        <h2>Most Pedestrians' Injuries are Recorded as Non-Incapacitating </h2>
+        <h2>Most Pedestrians' Injuries are Reported as Non-Incapacitating </h2>
         <p> "Reported, Non-evident" injuries are any injuries not included in the other categories or that are not visible/evident.
             Non-incapacitating injuries are defined as "any injury, other than a fatal or incapacitating injury, which is evident to
             observers at the scene of the crash. 
@@ -88,48 +88,45 @@
       <!-- definitely not done here  -->
     </div>
 </div>
-        
-    <div class="section"> 
-        <div id = "start here" > 
-            <h2> Pedestrians Location at Time of Crash 2017 </h2>
-            <p>The majority of pededstrians were in the crosswalk at the time of the crash
-            </p>
-            <div id="my_dataviz"></div>
-            <!-- <div id="horizontal-chart1"></div> -->
-        </div>
-        <p class="divided">
-            <span class="divider"></span> </p>
-    </div>
-
+<div class="section">
+    <h2>Across All Crashes, Most Pedestrians are in the Crosswalk When Hit</h2>
+    <!-- <p>Just under 50% of all pedestrians are in the crosswalk when hit, for each year from 2017 to 2022.
+    </p> -->
+    <div class='flex-container'>
+    <label>
+      Year: 
+      <select>
+        <option value="0">2017-2022</option>
+        <option value="1">2017</option>
+        <option value="2">2018</option>
+        <option value="3">2019</option>
+        <option value="4">2020</option>
+        <option value="5">2021</option>
+        <option value="6">2022</option>
+      </select>
+   </label>
+   
+    <div id="my_dataviz2"></div>
+  </div>
+  <p> Source: 
+    <a href="https://data.cityofchicago.org/Transportation/Traffic-Crashes-Crashes/85ca-t3if">Chicago Open Data Portal</a> 
+</p>  
+  <p class="divided">
+    <span class="divider"></span> </p>
+</div>
     <div class="section"> 
         <h2>come up with title </h2>
-        <!-- <div id="peds_action"></div>  -->
         <div id="horizontal-chart"></div>
         <p>Source: 
             <a href="https://data.cityofchicago.org/Transportation/Traffic-Crashes-Crashes/85ca-t3if">Chicago Open Data Portal</a> 
         </p>    
         <p class="divided">
         <span class="divider"></span> </p>
-
-
-
     </div>
     
 </div>
 
-        <div class="flex-container">
-            <h1>New2</h1>
-            <label>
-              Weather for 2022: 
-              <select>
-                <option value="0">2017</option>
-                <option value="1">2018</option>
-                <option value="2">2019</option>
-              </select>
-           </label>
-            <div id="my_dataviz2"></div>
-          </div>
-        </div>
+
 
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <script src="fatal_peds_2022_bees.js"></script>

@@ -1,7 +1,7 @@
-PEDPEDAL_LOCATION,value
-In crosswalk,880
-In roadway,768
-Unknown/na,189
-Not in roadway,108
-Driveway access,31
-Bike lane,5
+PEDPEDAL_LOCATION,value,,
+In crosswalk,44.42200909,,
+In roadway,38.76829884,,
+Unknown/na,9.540636042,,
+Not in roadway,5.451792024,,
+Driveway access,1.564866229,,
+Bike lane,0.252397779,,
