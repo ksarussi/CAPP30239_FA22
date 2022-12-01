@@ -9,10 +9,13 @@
 <head>
 <body>
     <div class="section">
-        <h1> Pedestrian Safety in Chicago </h1>
-        <h2> All data is from 2017 through October 2022 </h2>
-        <p>Data on the number of crashes is from Chicago Open Data Portal:  
-            <a href="https://data.cityofchicago.org/Transportation/Traffic-Crashes-Crashes/85ca-t3if">Chicago Open Data Portal</a> 
+        <h1> Analyzing Vehicle Crashes Involving Pedestrians</h1>
+        <h2> The Failure to Make Chicago Safe for People Walking </h2>
+        <h3> All data is from 2017 through October 2022 </h3>
+        <p>Data comes from the   
+            <a href="https://data.cityofchicago.org/Transportation/Traffic-Crashes-People/u6pd-qa9d">"Traffic Crashes - People"</a> and
+            <a href="https://data.cityofchicago.org/Transportation/Traffic-Crashes-People/u6pd-qa9d">"Traffic Crashes - Vision Zero Traffic Fatalities"</a> datasets from 
+            <a href="https://data.cityofchicago.org/"> the Chicago Open Data Portal. </a>
         </p>
         </p> Data last updated on 11/15/2022 </p>
         <p class="divided">
@@ -20,32 +23,37 @@
     </div>
     <div class="section"> 
         <h2>Hundreds of Pedestrians are Hit by Vehicles Every Month </h2>
-
+        <p> Crash data comes from the electronic crash reporting system ("E-Crash") from the Chicago Police Department. Although 
+            some E-Crash data is first available starting in 2015, citywide data did not become available until September 2017, which explains
+            the steep increase in reported crashes in September 2017. </p>
         <div id="line_chart"> </div> 
-        <p> There are some data quality issues in the early months of 2017. It is probable that the number
-            of pedestrains hit by vehicles is underreported in the data prior to the steep pickup in AUGUST 2017?? </p>
-        <p> The number of pedestrians hit by vehicles each month dropped as the COVID-19 pandemic picked up in March 2020. 
-            The lowest number of crashes in one month occurred in April 2020, in the midst of the COVID-19 pandemic.
-            Since then, number of pedestrians hit by vehicles each month have trended towards the pre-pandemic average.
+        <p> The number of pedestrians hit by vehicles declined as the COVID-19 pandemic began in March 2020. 
+            The lowest number of crashes in one month occurred in April 2020.
+            Since early 2021, the number of pedestrians hit has trended towards pre-pandemic averages.
         </p>
         <p>Source: 
-            <a href="https://data.cityofchicago.org/Transportation/Traffic-Crashes-Crashes/85ca-t3if">Chicago Open Data Portal</a> 
-        </p>    
+            <a href="https://data.cityofchicago.org/Transportation/Traffic-Crashes-People/u6pd-qa9d">"Traffic Crashes - People"</a> and
+            <a href="https://data.cityofchicago.org/Transportation/Traffic-Crashes-People/u6pd-qa9d">"Traffic Crashes - Vision Zero Traffic Fatalities"</a>        </p>    
         <p class="divided">
         <span class="divider"></span> </p>
     </div>
     <div class="section"> 
-        <h2>Most Pedestrians' Injuries are Reported as Non-Incapacitating </h2>
+        <h2>Most Pedestrian's Injuries are Reported as Non-Incapacitating </h2>
 
         <div id="area_chart_observable"></div>
-        <p> "Reported, Non-evident" injuries are any injuries not included in the other categories or that are not visible/evident.
-            Non-incapacitating injuries are defined as "any injury, other than a fatal or incapacitating injury, which is evident to
-            observers at the scene of the crash. 
-            This includes lumps on the head, abrasions, bruises, minor lacerations." 
+        <p> "Reported, Non-evident" are any injuries not included in the other categories, or are injuries that are not visible/evident.
+            This may include "momentary unconsciousness, claims of injuries not evident, limping, complaints of pain, nausea, hysteria"</p>
+        <div>    
+            <p>"Non-incapacitating" refers to any injuries that are not classified as fatal or incapacitating and are evident at the scene of the crash.
+            This may include "lumps on the head, abrasions, bruises, minor lacerations."
+        </p>
+        
+        <p>"Incapacitating" refers to any injuries "which prevents the injured person from walking, driving, or normally continuing the activities" that
+            were possible before the crash occurred.  
         </p>
             <p> Source:
-                <a href="https://data.cityofchicago.org/Transportation/Traffic-Crashes-Crashes/85ca-t3if">Chicago Open Data Portal</a> 
-            </p>
+                <a href="https://data.cityofchicago.org/Transportation/Traffic-Crashes-People/u6pd-qa9d">"Traffic Crashes - People"</a>,
+                <a href="https://data.cityofchicago.org/Transportation/Traffic-Crashes-People/u6pd-qa9d">"Traffic Crashes - Vision Zero Traffic Fatalities"</a>            </p>
                 <p> and 
                 <a href="https://safety.fhwa.dot.gov/hsip/spm/conversion_tbl/pdfs/kabco_ctable_by_state.pdf">KABCO Injury Classification Definitions</a> 
 
@@ -57,10 +65,16 @@
 
         <div id="beeswarm_peds" >
             <h2> Pedestrian Fatalities in 2022 </h2> 
-            <center><p> Each dot represents one fatality between 2017 and Oct. 2022 </p> </div></center>
+            <center><p> Each dot represents one fatality between 2017 and Oct. 2022 </p> </center>
+            <p> <center>From January through October, thirty-eight pedestrians have been killed.    </center>     
+            </p>
+            </div>
         </div>
-        <p> <center>From January to October, thirty-eight pedestrians have been killed this year.    </center>     
-        </p>
+        <p> The city of Chicago has a "Fatal Crash Response Coordination Committee" and uses a process to determine whether a 
+            death is a "traffic fatality" for the purposes of Vision Zero Chicago (an initiative created with the 
+            goal of zero traffic deaths in Chicago). I choose to display the number of pedestrian fatalities as 
+            defined by the FCRCC. This number may thus represent an underestimate of total pedestrian fatalities over time
+            due to the narrow definition of "traffic fatality" by the FCRCC." </p>
         <p> Source: 
             <a href="https://data.cityofchicago.org/Transportation/Traffic-Crashes-Crashes/85ca-t3if">Chicago Open Data Portal</a> 
         </p>  
@@ -69,7 +83,7 @@
     </div>
     <div class='section'>
         <div class = 'subsection'></div>
-        <h2> 269 Pedestrian Fatalities Between 2017 and 2022 </h2>
+        <h2> 240 Pedestrians were Killed Between 2017 and 2022 </h2>
         <center><p> Each dot represents one fatality between 2017 and Oct. 2022 </p> </div></center>
         <center><h3> Gold dots represent the percent of fatalities that occurred: </h3> </div></center>
     <div class='flex-container'>
@@ -88,15 +102,15 @@
     <!-- </div> -->
     <!-- how TO get rid of giant space after the grid charts? -->
         <p>Source:  
-            <a href="https://data.cityofchicago.org/Transportation/Traffic-Crashes-Crashes/85ca-t3if">Chicago Open Data Portal</a> 
-        </p>
+            <a href="https://data.cityofchicago.org/Transportation/Traffic-Crashes-People/u6pd-qa9d">"Traffic Crashes - People"</a> and
+            <a href="https://data.cityofchicago.org/Transportation/Traffic-Crashes-People/u6pd-qa9d">"Traffic Crashes - Vision Zero Traffic Fatalities"</a>        </p>
         <p class="divided">
             <span class="divider"></span> </p>
       <!-- definitely not done here  -->
     </div>
 </div>
 <div class="section">
-    <h2>Most Pedestrians are in the Crosswalk When Hit</h2>
+    <h2>The Majority of Pedestrians are in the Crosswalk When Hit</h2>
     <h3>Includes all injury types</h3>
 
     <!-- <p>Just under 50% of all pedestrians are in the crosswalk when hit, for each year from 2017 to 2022.
@@ -117,21 +131,22 @@
    
     <div id="my_dataviz2"></div>
   </div>
+  <p>The "shoulder" of the road was introduced as a variable beginning in 2019.</p>
   <p> Source: 
-    <a href="https://data.cityofchicago.org/Transportation/Traffic-Crashes-Crashes/85ca-t3if">Chicago Open Data Portal</a> 
-</p>  
+    <a href="https://data.cityofchicago.org/Transportation/Traffic-Crashes-People/u6pd-qa9d">"Traffic Crashes - People"</a> and
+    <a href="https://data.cityofchicago.org/Transportation/Traffic-Crashes-People/u6pd-qa9d">"Traffic Crashes - Vision Zero Traffic Fatalities"</a></p>  
   <p class="divided">
     <span class="divider"></span> </p>
 </div>
     <div class="section"> 
         <h2>Pedestrian Action at Time of Crash </h2>
-            <p> From 2017 to October 2022, 16,160 pedestrians have been hit by vehicles in Chicago. There are gaps in the 
-        data on what the pedestrian was doing at the time of the crash. 26.3% of a pedestrian's actions are 
-    labeled as "other" or "unknown" </p>
+            <p> From 2017 to October 2022, 16,160 pedestrians have been hit by vehicles in Chicago. </p>
+            <p>Many records lack information about the pedestrian's action at the time of the crash:
+                 26.3% of all records are labeled as "other" or "unknown." </p>
         <div id="horizontal-chart"></div>
         <p>Source: 
-            <a href="https://data.cityofchicago.org/Transportation/Traffic-Crashes-Crashes/85ca-t3if">Chicago Open Data Portal</a> 
-        </p>    
+            <a href="https://data.cityofchicago.org/Transportation/Traffic-Crashes-People/u6pd-qa9d">"Traffic Crashes - People"</a> and
+            <a href="https://data.cityofchicago.org/Transportation/Traffic-Crashes-People/u6pd-qa9d">"Traffic Crashes - Vision Zero Traffic Fatalities"</a>        </p>    
         <p class="divided">
         <span class="divider"></span> </p>
     </div>
