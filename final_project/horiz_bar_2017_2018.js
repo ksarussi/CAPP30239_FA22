@@ -1,7 +1,7 @@
 // set the dimensions and margins of the graph
 const margin = {top: 20, right: 30, bottom: 50, left: 120},
-    width = 350,
-    height = 300;
+    width = 300,
+    height = 200;
 
 // append the svg object to the body of the page
 const svg = d3.select("#my_dataviz2")

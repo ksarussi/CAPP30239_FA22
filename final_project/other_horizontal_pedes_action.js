@@ -22,7 +22,7 @@ d3.csv("data/action_all_years.csv").then(data => {
     // when are width and heights attributes vs variables
     // if hegiht and width are blue - variable
     // if red strings = attribute that will go on html page
-    const height = 600,
+    const height = 500,
           width = 1200,
           margin = ({ top: 25, right: 150, bottom: 100, left: 450 }); // adjust margins if labels are falling off!
 
@@ -68,7 +68,7 @@ d3.csv("data/action_all_years.csv").then(data => {
     bar.append('text') // add labels
         .text(d => d.value)
         .attr('x', d => margin.left + x(d.value)- margin.left + 60)
-        .attr('y', d => y(d.PEDPEDAL_ACTION) + (y.bandwidth()/2))
+        .attr('y', d => y(d.PEDPEDAL_ACTION) + (y.bandwidth()/2)+1)
         .attr('text-anchor', 'end')
         .attr('dominant-baseline', 'middle')
         .style('fill', 'black')
@@ -77,7 +77,7 @@ d3.csv("data/action_all_years.csv").then(data => {
         .attr("class", "x-label")
         .attr('text-anchor', 'end')
         .attr("x", width-margin.right)
-        .attr("y", height-42)
+        .attr("y", height)
         .text("Percent");
 
 });

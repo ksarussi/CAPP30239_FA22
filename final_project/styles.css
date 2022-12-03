@@ -1,13 +1,19 @@
 svg {
-    width: 70%;
+    width: 100%;
     height: auto;
     margin: 0 auto;
 } 
 
 .container {
     max-width: 1040px;
+    /* padding: 20px; */
     margin: 0 auto;
 }
+
+/* hr {
+    margin: 60px 0;
+} */
+
 
 /* * { font-family: Arial, Helvetica, sans-serif; } */
 /* * { font-family: Verdana, Geneva, Tahoma, sans-serif; } */
@@ -28,7 +34,47 @@ svg {
   /* * { font-family: 'Helectiva', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; } */
   /* * { font-family: Georgia, 'Times New Roman', Times, serif; } */
 
+#bees {
+border: 5px solid #002051;
+border-radius: 20px;
+margin-top: 20px;
+margin-bottom: 15px;
+}
 
+#grids {
+    border: 5px solid #002051;
+    border-radius: 20px;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    }
+
+#lines {
+    border: 5px solid #002051;
+    border-radius: 20px;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    }
+
+#bars1 {
+    border: 5px solid #002051;
+    border-radius: 20px;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    }
+
+#bars2 {
+    border: 5px solid #002051;
+    border-radius: 20px;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    }
+
+#area_chart {
+    border: 5px solid #002051;
+    border-radius: 20px;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    }
 
   .flex-container {
     display: flex;
