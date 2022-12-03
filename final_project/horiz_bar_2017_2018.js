@@ -1,7 +1,7 @@
 // set the dimensions and margins of the graph
 const margin = {top: 20, right: 30, bottom: 50, left: 120},
-    width = 400,
-    height = 350;
+    width = 350,
+    height = 300;
 
 // append the svg object to the body of the page
 const svg = d3.select("#my_dataviz2")
@@ -9,7 +9,8 @@ const svg = d3.select("#my_dataviz2")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
   .append("g")
-    .attr("transform", `translate(${margin.left}, ${margin.top})`);
+    .attr("transform", `translate(${margin.left}, ${margin.top})`)
+    .attr("viewBox", [0, 0, width, height]);
 
 svg.append('text') // svgs grow downward
     .attr("class", "x-label")
@@ -17,6 +18,7 @@ svg.append('text') // svgs grow downward
     .attr("x", width - margin.right + 25)
     .attr("y", height + 45)
     .text("Percent")
+
 
 // Parse the Data
 //d3.csv("data/location_2017.csv").then(function(data) {
@@ -36,23 +38,12 @@ Promise.all([
     .domain([0, 50])
     .range([ 0, width]);
 
-    // svg.append("g")
-    // .attr("transform", `translate(0, ${height})`)
-    // .call(d3.axisBottom(x))
-    // .selectAll("text")
-    //     .attr("transform", "translate(-10,0)rotate(-45)")
-    //     .style("text-anchor", "end");
-
     const binGroups = svg.append("g")
     .attr("transform", `translate(0, ${height})`)
     .call(d3.axisBottom(x))
     .selectAll("text")
         .attr("transform", "translate(-10,0)rotate(-45)")
         .style("text-anchor", "end");
-
-  
-//   const something = svg.append("g")
-//     .attr("class");
 
   //Bars
     function updateChart(i) {
@@ -79,8 +70,7 @@ Promise.all([
                    return enter.append("rect")
                  },
 
-                 
-
+                
          ).transition()
          .duration(750)
          .attr("x", x(0) )

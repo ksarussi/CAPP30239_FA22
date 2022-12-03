@@ -1,16 +1,16 @@
 // grid chart for crosswalk fatalities 
 
-//Source: https://lvngd.com/blog/building-pictogram-grids-d3js/
+// Source: https://lvngd.com/blog/building-pictogram-grids-d3js/
 
 (function grid_crosswalk() {
 
 	// number of circles to color in to visualize percent
-	var percentNumber = 65; // 0.2719665*240
+	var percentNumber = 65; // 0.2719665 * 240
 
 	// variables for the font family, and some colors
 	var fontFamily = "helvetica";
 	var twitterFill = "#999999";
-	var twitterFillActive = "#feba4a"; // before used fdea45
+	var twitterFillActive = "#feba4a";
 	var svgBackgroundColor = '#002051';
 
 	// width and height of the SVG
@@ -22,7 +22,7 @@
 		.attr("width", width)
 		.attr("height", height)
     	.style('background-color', svgBackgroundColor)
-        .attr("viewBox", [0, 0, width, height]);;
+        .attr("viewBox", [0, 0, width, height]);
 
 	// 10 rows and 10 columns 
 	var numRows = 15;
@@ -38,7 +38,7 @@
 		.domain(d3.range(numCols));
 
 	// the data is just an array of numbers for each cell in the grid
-	var data = d3.range(numCols*numRows);
+	var data = d3.range(numCols * numRows);
 
 	// container to hold the grid
 	var container = svg.append("g")
@@ -53,28 +53,5 @@
 			.attr('r', 12)
 			.attr('fill', function(d){return d < percentNumber ? twitterFillActive : twitterFill;})
 			.style('stroke', 'black');
-    // const annotation1 = [
-    //     {
-    //         note: {
-    //         label: "Test",
-    //         // title: "Annotation title",
-    //         //align: "left",  // try right or left
-    //         //wrap: 200,  // try something smaller to see text split in several lines
-    //         //padding: 10   // More = text lower
-    //         },
-    //         color: ["white"],
-    //         x: 100,
-    //         y: 100,
-    //         dy: 100,
-    //         dx: 100
-    //     }
-    //     ]
-        
-    // // Add annotation to the chart
-    // const makeAnnotations = d3.annotation()
-    //     .annotations(annotations)
-    // d3.select("#grid-chart")
-    //     .append("g")
-    //     .call(makeAnnotations)
         
 })();

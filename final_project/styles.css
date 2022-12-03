@@ -1,5 +1,5 @@
 svg {
-    width: 100%;
+    width: 70%;
     height: auto;
     margin: 0 auto;
 } 
@@ -36,17 +36,17 @@ svg {
     justify-content: flex-start;
     align-items: flex-start;
     align-content: flex-start;
-    /* width:90%; */
+    width:90%;
     max-width: 1040px;
-    /* height: 100vh; */
+    height: 50;
     overflow: auto;
     flex-direction: row;
     margin: 0 auto;
 }
 
 .flex-container .flex-item {
-    width: 100%;
-    min-height: 100%;
+    width: 75%;
+    min-height: 150%;
     margin: 5px;
 }
 
