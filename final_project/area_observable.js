@@ -1,7 +1,7 @@
 
 d3.csv('data/area_chart.csv').then(data => {
-        
-    for(let d of data) {
+
+    for (let d of data) {
         d.date = new Date(d.date);
     }
 
@@ -15,8 +15,8 @@ d3.csv('data/area_chart.csv').then(data => {
         width: 1000,
         height: 500,
     });
-    
-console.log(data)
+
+    console.log(data)
     document.getElementById("area_chart_observable").appendChild(area_chart_observable);
 });
 
@@ -47,23 +47,23 @@ function StackedAreaChart(data, {
     yLabel, // a label for the y-axis
     //colors = d3.schemeTableau10, // array of colors for z
     //colors = ["#eff3ff","#bdd7e7","#6baed6","#3182bd","#08519c"]
-    colors = ["#08306b","#1c6aaf","#3787c0","#82badb","#cadef0"]
+    colors = ["#08306b", "#1c6aaf", "#3787c0", "#82badb", "#cadef0"]
     //["#f7fbff","#e1edf8","#cadef0","#abcfe6","#82badb","#59a1cf","#3787c0","#1c6aaf","#0b4d94","#08306b"]
 
-  } = {}) {
+} = {}) {
     // Compute values.
     const X = d3.map(data, x);
     const Y = d3.map(data, y);
     const Z = d3.map(data, z);
-  
+
     // Compute default x- and z-domains, and unique the z-domain.
     if (xDomain === undefined) xDomain = d3.extent(X);
     if (zDomain === undefined) zDomain = Z;
     zDomain = new d3.InternSet(zDomain);
-  
+
     // Omit any data not present in the z-domain.
     const I = d3.range(X.length).filter(i => zDomain.has(Z[i]));
-  
+
     // Compute a nested array of series where each series is [[y1, y2], [y1, y2],
     // [y1, y2], …] representing the y-extent of each stacked rect. In addition,
     // each tuple has an i (index) property so that we can refer back to the
@@ -74,32 +74,32 @@ function StackedAreaChart(data, {
         .value(([x, I], z) => Y[I.get(z)])
         .order(order)
         .offset(offset)
-      (d3.rollup(I, ([i]) => i, i => X[i], i => Z[i]))
-      .map(s => s.map(d => Object.assign(d, {i: d.data[1].get(s.key)})));
-  
+        (d3.rollup(I, ([i]) => i, i => X[i], i => Z[i]))
+        .map(s => s.map(d => Object.assign(d, { i: d.data[1].get(s.key) })));
+
     // Compute the default y-domain. Note: diverging stacks can be negative.
     if (yDomain === undefined) yDomain = d3.extent(series.flat(2));
-  
+
     // Construct scales and axes.
     const xScale = xType(xDomain, xRange);
     const yScale = yType(yDomain, yRange).nice();
     const color = d3.scaleOrdinal(zDomain, colors);
     const xAxis = d3.axisBottom(xScale).ticks(d3.utcMonth.every(6)).tickSizeOuter(0)
-    .tickFormat(d3.timeFormat("%b-%y"));
+        .tickFormat(d3.timeFormat("%b-%y"));
     const yAxis = d3.axisLeft(yScale).ticks(height / 50);
     // const yAxis = d3.axisLeft(yScale).ticks(height / 50, yFormat)
 
     const area = d3.area()
-        .x(({i}) => xScale(X[i]))
+        .x(({ i }) => xScale(X[i]))
         .y0(([y1]) => yScale(y1))
         .y1(([, y2]) => yScale(y2));
-  
+
     const svg = d3.create("svg")
         .attr("width", width)
         .attr("height", height)
         .attr("viewBox", [0, 0, width, height])
         .attr("style", "max-width: 100%; height: auto; height: intrinsic;");
-  
+
     svg.append("g")
         .attr("transform", `translate(${marginLeft},0)`)
         .call(yAxis)
@@ -113,34 +113,33 @@ function StackedAreaChart(data, {
             .attr("fill", "currentColor")
             .attr("text-anchor", "start")
             .text(yLabel));
-  
+
     svg.append("g")
-      .selectAll("path")
-      .data(series)
-      .join("path")
-        .attr("fill", ([{i}]) => color(Z[i]))
+        .selectAll("path")
+        .data(series)
+        .join("path")
+        .attr("fill", ([{ i }]) => color(Z[i]))
         .attr("d", area)
-      .append("title")
-        .text(([{i}]) => Z[i]);
-  console.log(Z)
+        .append("title")
+        .text(([{ i }]) => Z[i]);
+    console.log(Z)
     svg.append("g")
         .attr("transform", `translate(0,${height - marginBottom})`)
         .call(xAxis);
 
     // Legend
-    svg.append("circle").attr("cx",610).attr("cy",82).attr("r", 6).style("fill", "#cadef0")
-    svg.append("circle").attr("cx",610).attr("cy",102).attr("r", 6).style("fill", "#82badb")
-    svg.append("circle").attr("cx",610).attr("cy",124).attr("r", 6).style("fill", "#3787c0")
+    svg.append("circle").attr("cx", 610).attr("cy", 82).attr("r", 6).style("fill", "#cadef0")
+    svg.append("circle").attr("cx", 610).attr("cy", 102).attr("r", 6).style("fill", "#82badb")
+    svg.append("circle").attr("cx", 610).attr("cy", 124).attr("r", 6).style("fill", "#3787c0")
 
-    svg.append("circle").attr("cx",610).attr("cy",145).attr("r", 6).style("fill", "#1c6aaf")
-    svg.append("circle").attr("cx",610).attr("cy",167).attr("r", 6).style("fill", "#08306b")
-    
-    svg.append("text").attr("x", 620).attr("y", 87).text("Reported, Not Evident").style("font-size", "14px").attr("alignment-baseline","middle")
-    svg.append("text").attr("x", 620).attr("y", 106).text("Non-Incapacitating").style("font-size", "14px").attr("alignment-baseline","middle")
-    svg.append("text").attr("x", 620).attr("y", 128).text("No indication of Injury").style("font-size", "14px").attr("alignment-baseline","middle")
-    svg.append("text").attr("x", 620).attr("y", 149).text("Incapacitating").style("font-size", "14px").attr("alignment-baseline","middle")
-    svg.append("text").attr("x", 620).attr("y", 171).text("Fatal").style("font-size", "14px").attr("alignment-baseline","middle")
+    svg.append("circle").attr("cx", 610).attr("cy", 145).attr("r", 6).style("fill", "#1c6aaf")
+    svg.append("circle").attr("cx", 610).attr("cy", 167).attr("r", 6).style("fill", "#08306b")
 
-    return Object.assign(svg.node(), {scales: {color}});
-  }
-  
+    svg.append("text").attr("x", 620).attr("y", 87).text("Reported, Not Evident").style("font-size", "14px").attr("alignment-baseline", "middle")
+    svg.append("text").attr("x", 620).attr("y", 106).text("Non-Incapacitating").style("font-size", "14px").attr("alignment-baseline", "middle")
+    svg.append("text").attr("x", 620).attr("y", 128).text("No indication of Injury").style("font-size", "14px").attr("alignment-baseline", "middle")
+    svg.append("text").attr("x", 620).attr("y", 149).text("Incapacitating").style("font-size", "14px").attr("alignment-baseline", "middle")
+    svg.append("text").attr("x", 620).attr("y", 171).text("Fatal").style("font-size", "14px").attr("alignment-baseline", "middle")
+
+    return Object.assign(svg.node(), { scales: { color } });
+}

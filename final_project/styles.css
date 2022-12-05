@@ -2,43 +2,23 @@ svg {
     width: 100%;
     height: auto;
     margin: 0 auto;
-} 
+}
 
 .container {
-    max-width: 1040px;
+    max-width: 800px;
     /* padding: 20px; */
     margin: 0 auto;
 }
 
-/* hr {
-    margin: 60px 0;
-} */
-
-
-/* * { font-family: Arial, Helvetica, sans-serif; } */
-/* * { font-family: Verdana, Geneva, Tahoma, sans-serif; } */
- 
-
- /* * {
-    font-family: 'Raleway',Arial, Helvetica, sans-serif;
-  } */
-
-  /* * {
-    font-family: 'Roboto',Arial, Helvetica, sans-serif;
-  } */
-
-   * {
-    font-family: 'Nunito Sans',Arial, Helvetica, sans-serif;
-  } 
-
-  /* * { font-family: 'Helectiva', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; } */
-  /* * { font-family: Georgia, 'Times New Roman', Times, serif; } */
+* {
+    font-family: 'Nunito Sans', Arial, Helvetica, sans-serif;
+}
 
 #bees {
-border: 5px solid #002051;
-border-radius: 20px;
-margin-top: 20px;
-margin-bottom: 15px;
+    border: 5px solid #002051;
+    border-radius: 20px;
+    margin-top: 20px;
+    margin-bottom: 15px;
 }
 
 #grids {
@@ -46,45 +26,45 @@ margin-bottom: 15px;
     border-radius: 20px;
     margin-top: 20px;
     margin-bottom: 15px;
-    }
+}
 
 #lines {
     border: 5px solid #002051;
     border-radius: 20px;
     margin-top: 20px;
     margin-bottom: 15px;
-    }
+}
 
 #bars1 {
     border: 5px solid #002051;
     border-radius: 20px;
     margin-top: 20px;
     margin-bottom: 15px;
-    }
+}
 
 #bars2 {
     border: 5px solid #002051;
     border-radius: 20px;
     margin-top: 20px;
     margin-bottom: 15px;
-    }
+}
 
 #area_chart {
     border: 5px solid #002051;
     border-radius: 20px;
     margin-top: 20px;
     margin-bottom: 15px;
-    }
+}
 
-  .flex-container {
+.flex-container {
     display: flex;
     flex-wrap: nowrap;
     justify-content: flex-start;
     align-items: flex-start;
     align-content: flex-start;
-    width:90%;
-    max-width: 1040px;
-    height: 50;
+    width: 90%;
+    max-width: 800px;
+    height: 50%;
     overflow: auto;
     flex-direction: row;
     margin: 0 auto;
@@ -101,20 +81,16 @@ margin-bottom: 15px;
     stroke-dasharray: 0;
 }
 
-#line_chart path.domain { 
-    display: none;  
-} 
+#line_chart path.domain {
+    display: none;
+}
 
 #line_chart text {
-    font-size: 12px;
+    font-size: 11px;
 }
 
 #peds_action text {
     font-size: 12px;
-}
-
-#horiz_bar_2017_2018 text {
-    font-size: 20px;
 }
 
 #area_chart_observable text {
@@ -125,62 +101,29 @@ margin-bottom: 15px;
     font-size: 19.5px;
 }
 
+#my_dataviz2 text {
+    font-size: 11px;
+}
+
 .divided {
-display: flex;
-align-items: center;
+    display: flex;
+    align-items: center;
 }
 
 .divider {
-flex-grow: 1;
-border-bottom: 1px solid rgb(46, 45, 45);
-margin: 5px
+    flex-grow: 1;
+    border-bottom: 1px solid rgb(46, 45, 45);
+    margin: 5px
 }
 
-/* title h1 h2 h3 h4 {
-font-weight:100;
-} */
-@media only screen and (max-width: 600px) { 
+@media only screen and (max-width: 600px) {
     .flex-container {
         display: block;
         width: 80%;
         height: auto;
     }
-    .flex-container .flex-item { min-height: auto; }
-} 
 
-
-
-
-/* text { font-size: 10px; } */
-
-/* .flex-container2 {
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    align-items: flex-start;
-    align-content: flex-start;
-    width:90%;
-    max-width: 1040px;
-    height: 100vh;
-    overflow: auto;
-    flex-direction: row;
-    margin: 0 auto;
-} */
-
-
-
-    
-/* H1 { text-align: center }
-H2 { text-align: center } */
-
-
-
-/* H4 { text-align: right }; */
-
-/* 
-.flex-container_stack {
-        width: 100%;
-        max-width: 1040px;
-        margin: 0 auto;
-    } */
-
+    .flex-container .flex-item {
+        min-height: auto;
+    }
+}

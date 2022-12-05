@@ -1,21 +1,21 @@
 // Beeswarm data 2022
 d3.csv('data/fatal_2022_peds.csv').then(data => {
-        
-    for(let d of data) {
+
+    for (let d of data) {
         d.Date = new Date(d.Date);
     }
 
     let beeswarm_peds = BeeswarmChart(data, {
         x: d => d.Date,
-        type: d3.scaleTime, 
+        type: d3.scaleTime,
         title: d => `Month`,
         width: 500,
         marginTop: 40,
         height: 75,
         radius: 4
     });
-    
-console.log(data)
+
+    console.log(data)
     document.getElementById("beeswarm_peds").appendChild(beeswarm_peds);
 });
 
@@ -46,7 +46,7 @@ function BeeswarmChart(data, {
     //xFormat = xScale.tickFormat("%b", xFormat),
     xDomain = domain, // [xmin, xmax]
     xRange = [marginLeft, width - marginRight] // [left, right]
-    } = {}) {
+} = {}) {
     // Compute values.
     const X = d3.map(data, x).map(x => x == null ? NaN : +x);
     const T = title == null ? null : d3.map(data, title);
@@ -61,7 +61,6 @@ function BeeswarmChart(data, {
 
     // Construct scales and axes.
     const xScale = xType(xDomain, xRange).nice();
-    // const xAxis = d3.axisBottom(xScale).tickSizeOuter(0);
     const xAxis = d3.axisBottom(xScale).tickFormat(d3.timeFormat("%b"));
     const color = group == null ? null : d3.scaleOrdinal(groups, colors);
 
@@ -80,39 +79,39 @@ function BeeswarmChart(data, {
 
         // Returns true if circle ⟨x,y⟩ intersects with any circle in the queue.
         function intersects(x, y) {
-        let a = head;
-        while (a) {
-            const ai = a.index;
-            if (radius2 - epsilon > (X[ai] - x) ** 2 + (Y[ai] - y) ** 2) return true;
-            a = a.next;
-        }
-        return false;
+            let a = head;
+            while (a) {
+                const ai = a.index;
+                if (radius2 - epsilon > (X[ai] - x) ** 2 + (Y[ai] - y) ** 2) return true;
+                a = a.next;
+            }
+            return false;
         }
 
         // Place each circle sequentially.
         for (const bi of d3.range(X.length).sort((i, j) => X[i] - X[j])) {
 
-        // Remove circles from the queue that can’t intersect the new circle b.
-        while (head && X[head.index] < X[bi] - radius2) head = head.next;
+            // Remove circles from the queue that can’t intersect the new circle b.
+            while (head && X[head.index] < X[bi] - radius2) head = head.next;
 
-        // Choose the minimum non-intersecting tangent.
-        if (intersects(X[bi], Y[bi] = 0)) {
-            let a = head;
-            Y[bi] = Infinity;
-            do {
-            const ai = a.index;
-            let y = Y[ai] + Math.sqrt(radius2 - (X[ai] - X[bi]) ** 2);
-            if (y < Y[bi] && !intersects(X[bi], y)) Y[bi] = y;
-            a = a.next;
-            } while (a);
+            // Choose the minimum non-intersecting tangent.
+            if (intersects(X[bi], Y[bi] = 0)) {
+                let a = head;
+                Y[bi] = Infinity;
+                do {
+                    const ai = a.index;
+                    let y = Y[ai] + Math.sqrt(radius2 - (X[ai] - X[bi]) ** 2);
+                    if (y < Y[bi] && !intersects(X[bi], y)) Y[bi] = y;
+                    a = a.next;
+                } while (a);
+            }
+
+            // Add b to the queue.
+            const b = { index: bi, next: null };
+            if (head === null) head = tail = b;
+            else tail = tail.next = b;
         }
-    
-        // Add b to the queue.
-        const b = {index: bi, next: null};
-        if (head === null) head = tail = b;
-        else tail = tail.next = b;
-        }
-    
+
         return Y;
     }
 
