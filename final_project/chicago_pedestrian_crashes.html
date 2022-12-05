@@ -1,197 +1,343 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:700,400,600" rel="stylesheet">
-  <title>Pedestrian crashes</title>
-  <link rel="stylesheet" href="styles.css">
-<head>
-<body>
-    <div class="section">
-        <center> <h1> Analyzing Vehicle Crashes Involving Pedestrians</h1></center> 
-        <center> <h2> The Failure to Make Chicago Safe for People Walking </h2></center>
-        <p class="divided">
-            <span class="divider"> </span> </p>
-        <center><h3> All data is from 2017 through October 2022 </h3></center>
-
-        <center><p>Data comes from the   
-            <a href="https://data.cityofchicago.org/Transportation/Traffic-Crashes-People/u6pd-qa9d">"Traffic Crashes - People"</a> and
-            <a href="https://data.cityofchicago.org/Transportation/Traffic-Crashes-People/u6pd-qa9d">"Traffic Crashes - Vision Zero Traffic Fatalities"</a> datasets from 
-            <a href="https://data.cityofchicago.org/"> the Chicago Open Data Portal. </a>
-        </p>
-        </p> Data last updated on 11/15/2022 </p></center>
-        <p class="divided">
-        <span class="divider"> </span> </p>
-    </div>
-    <p> Crash data comes from the electronic crash reporting system ("E-Crash") from the Chicago Police Department. Although 
-        some E-Crash data is first available starting in 2015, citywide data did not become available until September 2017, which explains
-        the steep increase in reported crashes in September 2017. </p>
-    <div class="section" id= lines> 
-        <h2>Hundreds of Pedestrians are Hit by Vehicles Every Month </h2>
- 
-        <div id="line_chart"> </div> 
-
-        <p>Source: 
-            <a href="https://data.cityofchicago.org/Transportation/Traffic-Crashes-People/u6pd-qa9d">"Traffic Crashes - People"</a> and
-            <a href="https://data.cityofchicago.org/Transportation/Traffic-Crashes-People/u6pd-qa9d">"Traffic Crashes - Vision Zero Traffic Fatalities"</a>        </p>    
-        <!-- <p class="divided">
-        <span class="divider"></span> </p> -->
-
-    </div>
-    <p> The number of pedestrians hit by vehicles declined as the COVID-19 pandemic began in March 2020. 
-        The lowest number of crashes in one month occurred in April 2020.
-        Since early 2021, the number of pedestrians hit has trended towards pre-pandemic averages.
-    </p>
-    <div class="section" id = area_chart> 
-        <h2>Most Pedestrian's Injuries are Reported as Non-Incapacitating </h2>
-
-        <div id="area_chart_observable" ></div>
-
-            <p> Source:
-                <a href="https://data.cityofchicago.org/Transportation/Traffic-Crashes-People/u6pd-qa9d">"Traffic Crashes - People"</a>,
-                <a href="https://data.cityofchicago.org/Transportation/Traffic-Crashes-People/u6pd-qa9d">"Traffic Crashes - Vision Zero Traffic Fatalities"</a>            </p>
-                <p> and 
-                <a href="https://safety.fhwa.dot.gov/hsip/spm/conversion_tbl/pdfs/kabco_ctable_by_state.pdf">KABCO Injury Classification Definitions</a> 
-
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:700,400,600" rel="stylesheet">
+    <title>Pedestrian crashes</title>
+    <link rel="stylesheet" href="styles.css">
+    <head>
+    <body>
+        <div class="container">
+            <div class="section">
+                <center>
+                    <h1> Analyzing Vehicle Crashes Involving Pedestrians in Chicago</h1>
+                    <h2> The Failure to Make Chicago Safe for People Walking </h2>
+                    <p class="divided"> <span class="divider"> </span> </p>
+                    <h3> Includes data from 2017 through October 2022 </h3>
+                    <p>Data comes from the
+                        <a href="https://data.cityofchicago.org/Transportation/Traffic-Crashes-People/u6pd-qa9d">"Traffic
+                            Crashes - People"</a> and
+                        <a href="https://data.cityofchicago.org/Transportation/Traffic-Crashes-Vision-Zero-Chicago-Traffic-Fatali/gzaz-isa6/data">"Traffic
+                            Crashes - Vision Zero Traffic Fatalities"</a> datasets from
+                        <a href="https://data.cityofchicago.org/"> the Chicago Open Data Portal. </a>
+                    </p>
+                    </p> Data last pulled on 11/15/2022 </p>
+                </center>
+                <p class="divided"> <span class="divider"> </span> </p>
+            </div>
+            <p> Across the United States, traffic-related deaths have reached the highest levels in 20 years.<sup><a
+                        href="#sources">(1)</a></sup>
+                In 2021, pedestrian fatalities were up 13% compared to 2020.<sup><a href="#sources">(2)</a></sup>
+                In 2012, Mayor Rahm Emanuel wrote in the Chicago Pedestrian Plan that "Chicago's remarkable pedestrian
+                streets make our city a place where people want to live, work, and play.<sup><a href="#sources">(3)</a></sup>
+                However, the trends in traffic crashes involving pedestrians point to a different reality. In 2022, Mayor Lori
+                Lightfoot stated that Chicago is indeed a "car city"<sup><a href="#sources">(4)</a></sup>. Ten years after
+                the Chicago Pedestrian Plan was published, little to no progress has been made to reach the city's 
+                goal of making Chicago safe for pedestrians.
             </p>
-            <!-- <p class="divided">
-            <span class="divider"></span> </p> -->
-    </div>
-    <p> "Reported, Non-evident" are any injuries not included in the other categories, or are injuries that are not visible/evident.
-        This may include "momentary unconsciousness, claims of injuries not evident, limping, complaints of pain, nausea, hysteria"</p>
-    <div>    
-        <p>"Non-incapacitating" refers to any injuries that are not classified as fatal or incapacitating and are evident at the scene of the crash.
-        This may include "lumps on the head, abrasions, bruises, minor lacerations."
-    </p>
-    
-    <p>"Incapacitating" refers to any injuries "which prevents the injured person from walking, driving, or normally continuing the activities" that
-        were possible before the crash occurred.  
-    </p>
-</div>
-    <div class="section" id = "bees"> 
-        <h2> Pedestrian Fatalities in 2022 </h2> 
-        <div id="beeswarm_peds" >
-
-                <p> Each dot represents one fatality between 2017 and Oct. 2022 </p>
-        
+            <div class="section" id=lines>
+                <center>
+                    <h2>Hundreds of Pedestrians are Hit by Vehicles Every Month in Chicago</h2>
+                </center>
+                <div id="line_chart"> </div>
+                <p>Source:
+                    <a href="https://data.cityofchicago.org/Transportation/Traffic-Crashes-People/u6pd-qa9d">"Traffic
+                        Crashes - People"</a> and
+                    <a href="https://data.cityofchicago.org/Transportation/Traffic-Crashes-Vision-Zero-Chicago-Traffic-Fatali/gzaz-isa6/data">"Traffic
+                        Crashes - Vision Zero Traffic Fatalities"</a>
+                </p>
+            </div>
+            <p> Chicago Crash data comes is collected from an electronic crash reporting system ("E-Crash") from the Chicago Police
+                Department. Although some police district's E-Crash data became available in 2015,
+                citywide data did not become available 
+                until September 2017.<sup><a href="#sources">(7)</a></sup> This means that any data
+                related to the number of crashes involving pedsetrians is an underrepresentation of total crashes prior to September 2017.
+                The total number of crashes after September 2017 is also likely an underrepresentation of 
+                total crashes involving pedestrians because many traffic crashes - involving pedestrians or not
+                - do not result in a police report being filed and thus are not included in the data collection process. <sup><a
+                        href="#sources">(19)</a></sup> </p>
+            <p> As government ordered shut-downs began in March of 2020 in response to the COVID-19 pandemic, traffic
+                crashes involving pedestrians in Chiago dropped significantly.
+                However, since early 2021, the number of pedestrians has returned to pre-pandemic levels,
+                reaching 307 crashes involving pedestrians in October 2022.
+                Chicago, like many other US cities, has infrastructure and roads which prioritize private vehicles over other modes of transportation. However, car-culture is not new and does not explain the rise
+                in number of crashes involving pedestrians. In recent years, vehicles have become larger and heavier, and
+                speeding has increased.<sup><a href="#sources">(10)(11)</a></sup>
+                Higher speeds and heavier vehicles means a pedestrian is more likely to be killed or be severly injured after being hit by a vehicle.<sup><a
+                        href="#sources">(10)</a></sup> Without any changes to how
+                infrastructure is designed and built, pedestrians will continue to face unacceptable risks of getting hit by
+                a vehicle well into the future.
             </p>
+            <p>Crashes involving pedestrians result in life-changing injuries regardless of whether they are visible or
+                invisible. The Federal Highway Administration has a measurement for evaluating severity of auto
+                collision injuries and how to express injuries in crash reports, called a "KABCO Score".
+                The five categories for injuries range from Reported/Non-evident to Fatal. "Reported, Non-evident" are
+                injuries not included in the other four categories, or injuries that are not visible/evident.
+                "Non-incapacitating" includes injuries that are not classified as fatal or incapacitating and are evident at
+                the scene of the crash, including "lumps on the head, abrasions, bruises, minor lacerations."
+                "Incapacitating" refers to any injuries "which prevents the injured person from walking, driving, or
+                normally continuing the activities" that
+                were possible before the crash occurred.<sup><a href="#sources">(9)</a></sup> Aside from physical and mental injuries,
+                these crashes also impose a large economic burden on the pedestrian. According to a paper published in 2007,
+                the average total lifetime cost per pedestrian-motor vehicle injury case is $135,558.<sup><a href="#sources">(21)</a></sup>
+            </p>
+            <div class="section" id=area_chart>
+                <center>
+                    <h2>Most Pedestrians' Injuries are Reported as Non-Incapacitating </h2>
+                </center>
+                <div id="area_chart_observable"></div>
+                <p> Source:
+                    <a href="https://data.cityofchicago.org/Transportation/Traffic-Crashes-People/u6pd-qa9d">"Traffic
+                        Crashes - People"</a>,
+                    <a href="https://data.cityofchicago.org/Transportation/Traffic-Crashes-Vision-Zero-Chicago-Traffic-Fatali/gzaz-isa6/data">"Traffic
+                        Crashes - Vision Zero Traffic Fatalities"</a>
+                </p>
+            </div>
+            <div>
+                <p>Although fatalities represent a small percent of total crashes, even one fatality is too many. In 2017,
+                    Chicago implemented a plan called "Vision Zero",<sup><a href="#sources">(5)</a></sup> which was intended as an acknowledgement "that
+                    traffic deaths are preventable and unacceptable" and a committment to "using all available tools to influence the conditions and behaviors that lead to
+                    serious crashes"<sup><a href="#sources">(6)</a></sup> with a goal of "eliminating death and serious injury from traffic crashes".<sup><a
+                            href="#sources">(8)</a></sup> Chicago implemented a plan to reach zero deaths by
+                    making streets safer through equitable investment, fostering a culture of safety through education, and
+                    "designing streets at safe speeds to decrease crash risk and severity".<sup><a href="#sources">(13)</a></sup> </p>
+                <p>If success is measured in terms of a reduction of pedestrian fatalities over time, Chicago's Vision Zero
+                    is a failure. According to Chicago's Vision Zero Fatality and Crashes - People data, there were
+                    16 fatalities in 2017, 31 in 2018, 49 in 2019, 46 in 2020, 61 in 2021, and 36 in 2022 (though October).<sup><a href="#sources">(12)</a></sup>
+                </p>
+            </div>
+            <div class="section" id="bees">
+                <center>
+                    <h2> Pedestrian Fatalities in 2022 </h2>
+                <div id="beeswarm_peds">
+                        <p> Each dot represents one fatality between 2017 and Oct. 2022 </p>
+                    </p>
+                </div>
+                    <p> From January through October, thirty-six pedestrians have been killed.  </p>
 
-            
+                </center>
+                <p> Source:
+                    <a href="https://data.cityofchicago.org/Transportation/Traffic-Crashes-Crashes/85ca-t3if">Chicago Open
+                        Data Portal</a>
+                </p>
+            </div>
+            <p>In Illinois, "drivers must come to a complete stop for pedestrians
+                in any of those crosswalks: marked, unmarked, signalized or unsignalized."<sup><a href="#sources">(14)</a></sup>
+                27% of pedestrian fatalities in Chicago occurred while the person was in the crosswalk. Laws do little
+                to protect pedestrians when drivers are uninformed or ignore the law. Chicago should 
+                invest in infrastructure and road design that prioritize people walking instead of waiting for drivers to follow the law.<sup><a href="#sources">(10)</a></sup>
+                Solutions to making Chicago safe for pedestrians include raised islands, medians at intersections, reducing speed limits, narrowing traffic lanes, and increasing
+                pedesterian signals and sidewalk networks. <sup><a href="#sources">(15)(16)</a></sup>
+                People should be able to cross the street safely in Chicago and anywhere they go.
+            </p>
+            <div class='section' id=grids>
+                <div class='section'>
+                    <div class='subsection'></div>
+                    <center>
+                        <h2> 239 Pedestrians were Killed Between 2017 and 2022 </h2>
+                    </center>
+                    <div class='section'>
+                        <center>
+                            <p> Each dot represents one fatality between 2017 and Oct. 2022. </p>
+                    </div>
+                    </center>
+                    <center>
+                        <p> Gold dots represent the percent of fatalities that occurred: </p>
+                    </div>
+                    
+                </center>
+                <div class='flex-container'>
+                    <div id="grid-chart_morning" class="flex-item">
+                        <center>
+                            <h3> during the afternoon </h3>
+                    </div>
+                    </center>
+                    <div id="grid-chart" class="flex-item">
+                        <center>
+                            <h3> while pedestrian is in the crosswalk </h3>
+                    </div>
+                    </center>
+                </div>
+                <div class='section'>
+                    <div class='flex-container'>
+                        <div id="text1" class="flex-item">
+                            <center>
+                                <h4> 68% of fatalities occured during the afternoon </p>
+                        </div>
+                        </center>
+                        <div id="text2" class="flex-item">
+                            <center>
+                                <h4> 27% of fatalities occured while the pedestrian was in the crosswalk </h4>
+                        </div>
+                        </center>
+                    </div>
+                    <p>Source:
+                        <a href="https://data.cityofchicago.org/Transportation/Traffic-Crashes-People/u6pd-qa9d">"Traffic
+                            Crashes - People"</a> and
+                        <a href="https://data.cityofchicago.org/Transportation/Traffic-Crashes-Vision-Zero-Chicago-Traffic-Fatali/gzaz-isa6/data">"Traffic
+                            Crashes - Vision Zero Traffic Fatalities"</a>
+                    </p>
+                </div>
+            </div>
+            <p>From 2017 through October 2022, 16,160 pedestrians were hit by vehiles in Chicago.
+                Nearly 50% of pedestrians were in the crosswalk when hit by a vehicle in Chicago across all injury types.
+                Arond 35% of pedestrians were in the road outside of the crosswalk when hit. People may be forced to walk in the
+                street when the sidewalk is inaccessible, there are no curb cuts at an intersection, or have to cross the street without an accessible crosswalk.
+                This suggests that there is a need to improve sidewalk networks and ensure that sidewalks, curb cuts, and signals are
+                available city-wide. Pedestrians are disproportionately Black in the United States; Black, Indigenous, people of color, and
+                lower-income people face a higher injury risk.<sup><a href="#sources">(17)(18)</a></sup> Inequities across
+                racial and income groups need to be considered in the design and implementation of better infrastructure for
+                pedestrians.
+            </p>
+            <div class="section" id=bars1>
+                <center>
+                    <h2>Many Pedestrians are in the Crosswalk When Hit</h2>
+                </center>
+                <center>
+                    <p>All injury types</p>
+                </center>
+                <div class='flex-container'>
+                    <label>
+                        Year:
+                        <select>
+                            <option value="0">2017-2022</option>
+                            <option value="1">2017</option>
+                            <option value="2">2018</option>
+                            <option value="3">2019</option>
+                            <option value="4">2020</option>
+                            <option value="5">2021</option>
+                            <option value="6">2022</option>
+                        </select>
+                    </label>
+                    <div id="my_dataviz2"></div>
+                </div>
+                <p> Source:
+                    <a href="https://data.cityofchicago.org/Transportation/Traffic-Crashes-People/u6pd-qa9d">"Traffic
+                        Crashes - People"</a> and
+                    <a
+                        href="https://data.cityofchicago.org/Transportation/Traffic-Crashes-Vision-Zero-Chicago-Traffic-Fatali/gzaz-isa6/data">"Traffic
+                        Crashes - Vision Zero Traffic Fatalities"</a>
+                </p>
+            </div>
+            <p> Many pedestrians are crossing with a walk-signal at an intersection at the time of crash, according to Chicago
+                People-Crash data.<sup><a href="#sources">(7)</a></sup> Most crashes occur at an intersection while a pedestrian is crossing the street. At least four people were
+                "critically injured or killed" by a driver while waiting for a bus at a bus stop in Chicago in 2022. <sup><a href="#sources">(20)</a></sup> People should be able to get to
+                work and school safely without wondering if they will be get injured or killed by a driver that day.
+            </p>
+            <div class="section" id=bars2>
+                <center>
+                    <h2>Crashes Frequently Occur While the Pedestrian is Crossing the Street </h2>
+                </center>
+                <div id="horizontal-chart"></div>
+                <p>Source:
+                    <a href="https://data.cityofchicago.org/Transportation/Traffic-Crashes-People/u6pd-qa9d">"Traffic
+                        Crashes - People"</a> and
+                    <a href="https://data.cityofchicago.org/Transportation/Traffic-Crashes-Vision-Zero-Chicago-Traffic-Fatali/gzaz-isa6/data">"Traffic
+                        Crashes - Vision Zero Traffic Fatalities"</a>
+                </p>
+            </div>
+            <p> Chicago has declared that it values making the city safe for people regardless of whether they are walking,
+                biking,
+                or driving. However, recent trends suggest that the city does not take seriously the task of making Chicago
+                a safe place for pedestrians. Even though Chicago is not the only city to face an increase in number of 
+                crashes involving pedestrians, more steps should be taken to improve the existing and future infrastrucutre to reduce 
+                the number of pedestrians being hit and killed by drivers in Chicago.
+            </p>
+            <h2 id="process">Process</h2>
+            <p> I am interested in this question because I know many people who have been hit by cars in Chicago
+                and other cities. Many drivers in Chicago do not stop at stop signs or follow traffic rules, so I wanted to
+                learn more about the trends in how this was affecting pedestrians' ability to move about the city
+                safely. The datasets I used came from the Chicago Open Data Portal.<sup><a href="#sources">(7)(12)</a></sup>
+                The first dataset is called “Traffic Crashes – People” and each record corresponded to one individual
+                involved in a crash. The records come from Chicago Police Department reports. The second dataset is
+                called “Vision Zero Chicago” and each record represents one traffic death. The Vision Zero excludes some fatalities, classifying traffic deaths
+                differently than the People dataset. I include traffic deaths from both datasets. There are two
+                additional datasets on the Chicago Data Portal related to details on the vehicle and crash that could have added additional color to the
+                analysis, I explain how some of these additional variables might have been useful below. I
+                initially wanted to include data and charts on bicyclist crashes as well, but pivoted to focus on pedestrians
+                because it seemed like there was enough to explore in each topic by itself instead of combining them.</p>
+            <p>The charts I chose reflected my primary goal of telling a story about who, when, and how, pedestrians
+                are involved in crashes in Chicago. I chose charts that allowed me to show the injuries pedestrians face
+                and how the infrastructure in the city does not help keep pedestrians safe. I began with a line over time
+                and a stacked area chart to illustrate a trend in the number of pedestrians in crashes over time. The
+                area chart broke down the type of injury over time to better understand the details of each person
+                involved. I next chose a beeswarm chart and grid charts to try and further illustrate that these crashes
+                involve humans, not just abstract data points. By using charts that had one dot representing per person
+                in a crash, I hoped to retain some humanism in the design. These charts were also helpful in getting the
+                point across that although overall fatalities were low, there are still many people being killed each
+                month. I used the grid charts to show more about how the current infrastructure fails to keep
+                pedestrians safe. I utilized horizontal line charts in order to show large amounts of information about
+                where a pedestrian was located or walking at the time of the crash. I chose dark blue for most of my charts
+                because I wanted the reader to focus on the results and wanted to make the charts clear without too many colors.</p>
+            <p>Further areas for exploration include more charts related to demographic details and who was involved
+                in most crashes. There is limited data on the estimated cost of the crash, race of the person involved,
+                gender, and where they are from. These would have helped give more details on the “who” is involved.
+                The other outstanding question that I would have like to answered is which neighborhoods and
+                intersections were the most problematic in terms of injuries and crashes involving pedestrians, but the
+                datasets I was using did not have a field for which neighborhood each crash occurred, so I did not make
+                a map illustrating these details.</p>
+            <p>There are gaps in the data due to the subjectivity of police reports, underreporting of crashes, and
+                the quality of data entry. Many records lack information about the pedestrian's action at the time of the
+                crash: 26.3% of all records are labeled as "other" or "unknown." I would have liked to analyze the speed of car at
+                time of crash; however, very few
+                observations had any details on whether the vehicle that was involved was speeding. Other variables
+                had few observations and thus limited what I could learn from the data. Since the data is
+                collected at a time of high stress during a crash, or a pedestrian with incapacitating injuries
+                may not be able to explain what happened, thus, the number of crashes in the dataset is an underrepresentation
+                of the true number of crashes. Overall, I enjoyed trying to find good ways to reflect what was going on in the data
+                and learning more about building charts in d3. </p>
+            <h2 id="sources">Sources</h2>
+            <p>
+            <ol type="1">
+                <li><a
+                        href="https://news.wttw.com/2022/09/10/traffic-deaths-are-rise-year-how-does-chicago-s-segregation-impact-safety">Erica Gunderson | September 10, 2022. (n.d.). Traffic deaths are on rise this year. WTTW News.</a></li>
+                <li><a href=" https://crashstats.nhtsa.dot.gov/Api/Public/ViewPublication/813298">National Center for
+                        Statistics and Analysis. (2022, May).
+                        Early estimates of motor vehicle traffic fatalities and fatality
+                        rate by sub-categories in 2021 (Crash-Stats Brief Statistical
+                        Summary. Report No. DOT HS 813 298). National
+                        Highway Traffic Safety Administration.</a></li>
+                <li><a href="https://www.chicago.gov/content/dam/city/depts/cdot/supp_info/ChicagoPedestrianPlan.pdf">Chicago Pedestrian Plan - 2012</a></li>
+                <li><a href="https://www.wbez.org/stories/mayor-lightfoot-eyes-chicagos-gas-tax-as-prices-soar/bf6e3983-b1ab-4f9d-8792-aa5a15344702">
+                    Vevea, B. (2022, March 24). Mayor Lori Lightfoot is 'diligently' working on a plan to address the city's Gas Tax. WBEZ</a></li>
+                <li><a href=" https://www.chicagotribune.com/news/breaking/ct-vision-zero-chicago-0613-mayor-rahm-emanuel-on-monday-released-the-citys-thr-20170612-story.html">Wisniewski, M. (2019, May 23). City releases Vision Zero Plan aimed at preventing roadway deaths, injuries. Chicago Tribune.</a></li>
+                <li><a href="https://www.chicago.gov/city/en/depts/cdot/supp_info/vision-zero-chicago.html">Vision-Zero-Chicago</a></li>
+                <li><a href="https://data.cityofchicago.org/Transportation/Traffic-Crashes-People/u6pd-qa9d">"Traffic Crashes - People"</a> </li>
+                <li><a href="https://visionzerochicago.org/what-is-vision-zero/">What is Vision Zero</a></li>
+                <li><a href=" https://safety.fhwa.dot.gov/hsip/spm/conversion_tbl/pdfs/kabco_ctable_by_state.pdf">KABCO Injury Classification</a></li>
+                <li><a href="https://www.nytimes.com/2022/11/27/upshot/road-deaths-pedestrians-cyclists.html">Badger, E., & amp; Parlapiano, A. (2022, November 27). The exceptionally American problem of rising roadway deaths. The New York Times.</a></li>
+                <li><a href="https://chi.streetsblog.org/2020/04/29/your-suspicion-is-right-people-have-been-speeding-more-during-stay-at-home/">Vance, S., &amp; Greenfield, J. (2020, April 29). Your suspicion is right: People have been speeding more during stay at home. Streetsblog Chicago.</a></li>
+                <li><a href="https://data.cityofchicago.org/Transportation/Traffic-Crashes-Vision-Zero-Chicago-Traffic-Fatali/gzaz-isa6/data
+                    "> Traffic-Crashes-Vision-Zero_Chicago-Traffic-Fatalities</a></li>
+                <li><a href="https://secureservercdn.net/198.71.233.109/8gq.ef1.myftpupload.com/wp-content/uploads/2016/05/17_0612-VZ-Action-Plan_FOR-WEB.pdf
+                    "> Vision Zero Chicago Action Plan</a></li>
+                <li><a href="https://www.activetrans.org/sites/files/how%20HB%2043%20works_1.pdf"> Drivers Must Stop For Pedestrians in Illinois</a></li>
+                <li><a href="https://www.lhsfna.org/designing-and-updating-infrastructure-for-pedestrian-safety/">Fox, N. (2021, September 19). Designing and updating infrastructure for pedestrian safety. LHSFNA.</a></li>
+                <li><a href="https://www.bloomberg.com/news/articles/2021-10-27/how-to-end-the-u-s-pedestrian-safety-crisis-in-7-steps">Bloomberg. (2021, October 27). 7 steps to improve pedestrian safety on U.S. streets. Bloomberg.com.</a></li>
+                <li><a href="https://www.nytimes.com/2022/02/15/briefing/vehicle-crashes-deaths-pandemic.html">Leonhardt, D. (2022, February 15). Vehicle crashes, surging. The New York Times.</a></li>
+                <li><a href="https://www.sciencedirect.com/science/article/abs/pii/S1361920922001225">
+                        Roll, J., & McNeil, N. (2022). Race and income disparities in pedestrian injuries
+                        : Factors influencing pedestrian
+                        safety inequity. Transportation Research Part D:
+                        Transport and Environment, 107, 103294.
+                    </a></li>
+                <li><a href="https://www.tandfonline.com/doi/abs/10.1080/15389588.2022.2143236?src=&journalCode=gcpi20"> Mickey Edwards & Manuel Gutierrez (2022) The incidence burden of unreported pedestrian crashes in Illinois, Traffic Injury Prevention, DOI: 10.1080/15389588.2022.2143236 </a></li>
+                <li><a href="https://chi.streetsblog.org/2022/10/26/man-fatally-struck-at-chatham-bus-stop-is-2nd-pedestrian-killed-at-79th-king-in-2-months/">Greenfield, J. (2022, November 22). Man fatally struck at Chatham bus stop is 2nd pedestrian killed at 79th/king in 2 months. Streetsblog Chicago.</a></li>
+                <li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2859736/"> 
+                    Chakravarthy B, Lotfipour S, Vaca FE. Pedestrian injuries: emergency care considerations. Cal J Emerg Med. 2007 Feb;8(1):15-21. PMID: 20440388; PMCID: PMC2859736.</a></li>    
+            </ol>
+            </p>
         </div>
-        <p> From January through October, thirty-eight pedestrians have been killed.
 
-        <p> Source: 
-            <a href="https://data.cityofchicago.org/Transportation/Traffic-Crashes-Crashes/85ca-t3if">Chicago Open Data Portal</a> 
-        </p>  
-        </div>
-        <p> The city of Chicago has a "Fatal Crash Response Coordination Committee" and uses a process to determine whether a 
-            death is a "traffic fatality" for the purposes of Vision Zero Chicago (an initiative created with the 
-            goal of zero traffic deaths in Chicago). I choose to display the number of pedestrian fatalities as 
-            defined by the FCRCC. This number may thus represent an underestimate of total pedestrian fatalities over time
-            due to the narrow definition of "traffic fatality" by the FCRCC." </p>
-
-        <!-- <p class="divided">
-        <span class="divider"></span> </p> -->
-    </div>
-    <div class='section' id = grids>
-        <div class='section'>
-            <div class = 'subsection' ></div>
-            <h2> 240 Pedestrians were Killed Between 2017 and 2022 </h2>
-           
-            <div class='section' >
-                <h4> Each dot represents one fatality between 2017 and Oct. 2022 </h4> </div>
-                <center> <p> Gold dots represent the percent of fatalities that occurred: </p> </div></center>
-
-        <div class='flex-container'>
-            <div id="grid-chart_morning" class="flex-item"> 
-                <center><h3>  during the afternoon </h3> </div></center>
-            <div id="grid-chart" class="flex-item"> 
-                <center><h3>  while pedestrian is in the crosswalk </h3> </div></center>
-        </div>
-        <div class='section'>
-        <div class='flex-container'>
-            <div id="text1" class="flex-item"> 
-                <center><h4> 68% of fatalities occured during the afternoon </p> </div></center>
-            <div id="text2" class="flex-item"> 
-                <center><h4>  27% of fatalities occured while the pedestrian was in the crosswalk </h4> </div></center>
-        </div>
-        <!-- </div> -->
-        <!-- how TO get rid of giant space after the grid charts? -->
-            <p>Source:  
-                <a href="https://data.cityofchicago.org/Transportation/Traffic-Crashes-People/u6pd-qa9d">"Traffic Crashes - People"</a> and
-                <a href="https://data.cityofchicago.org/Transportation/Traffic-Crashes-People/u6pd-qa9d">"Traffic Crashes - Vision Zero Traffic Fatalities"</a>        </p>
-    </div>
-                <!-- <p class="divided">
-                <span class="divider"></span> </p> -->
-        <!-- definitely not done here  -->
-
-    </div>
-</div>
-<div class="section"id= bars1>
-    <h2>The Majority of Pedestrians are in the Crosswalk When Hit</h2>
-    <h3>Includes all injury types</h3>
-
-    <!-- <p>Just under 50% of all pedestrians are in the crosswalk when hit, for each year from 2017 to 2022.
-    </p> -->
-    <div class='flex-container'>
-    <label>
-      Year: 
-      <select>
-        <option value="0">2017-2022</option>
-        <option value="1">2017</option>
-        <option value="2">2018</option>
-        <option value="3">2019</option>
-        <option value="4">2020</option>
-        <option value="5">2021</option>
-        <option value="6">2022</option>
-      </select>
-   </label>
-   
-    <div id="my_dataviz2"></div>
-  </div>
-  <!-- <p>The "shoulder" of the road was introduced as a variable beginning in 2019.</p> -->
-  <p> Source: 
-    <a href="https://data.cityofchicago.org/Transportation/Traffic-Crashes-People/u6pd-qa9d">"Traffic Crashes - People"</a> and
-    <a href="https://data.cityofchicago.org/Transportation/Traffic-Crashes-People/u6pd-qa9d">"Traffic Crashes - Vision Zero Traffic Fatalities"</a></p>  
-  <!-- <p class="divided">
-    <span class="divider"></span> </p> -->
-</div>
-    <div class="section" id = bars2> 
-        <h2>Pedestrian Action at Time of Crash </h2>
-            <p> From 2017 to October 2022, 16,160 pedestrians have been hit by vehicles in Chicago. </p>
-
-        <div id="horizontal-chart"></div>
-        
-        <p>Source: 
-            <a href="https://data.cityofchicago.org/Transportation/Traffic-Crashes-People/u6pd-qa9d">"Traffic Crashes - People"</a> and
-            <a href="https://data.cityofchicago.org/Transportation/Traffic-Crashes-People/u6pd-qa9d">"Traffic Crashes - Vision Zero Traffic Fatalities"</a>        </p>    
-
-            <!-- <p class="divided">
-        <span class="divider"></span> </p> -->
-    </div>
-    <p>Many records lack information about the pedestrian's action at the time of the crash:
-        26.3% of all records are labeled as "other" or "unknown." </p>
-    
-</div>
-
-
-
-    <script src="https://d3js.org/d3.v7.min.js"></script>
-    <script src="fatal_peds_2022_bees.js"></script>
-    <script src="time_day.js"></script>
-    <script src="crosswalk.js"></script>
-    <script src="line_chart_months.js"></script>
-    <script src="area_observable.js"></script>
-    <!-- <script src="horizontal_bar_2017.js"></script> -->
-    <!-- <script src="horiz_bar_pedestrian_location_2017.js"></script> -->
-
-    <script src="horiz_bar_2017_2018.js"></script>
-    <!-- <script src="horizontal_bar_ped_action.js"></script> -->
-    <script src="other_horizontal_pedes_action.js"></script>
-
-
-
-</body>
+        <script src="https://d3js.org/d3.v7.min.js"></script>
+        <script src="fatal_peds_2022_bees.js"></script>
+        <script src="time_day.js"></script>
+        <script src="crosswalk.js"></script>
+        <script src="line_chart_months.js"></script>
+        <script src="area_observable.js"></script>
+        <script src="horiz_bar_all_years.js"></script>
+        <script src="other_horizontal_pedes_action.js"></script>
+    </body>
 </html>
